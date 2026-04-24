@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-type DemoType = "pivot" | "slidingDoor" | "bifold" | "fixedWindow" | "slidingWindow" | "awningWindow";
+type DemoType = "pivot" | "slidingDoor" | "bifold" | "fixedWindow" | "slidingWindow" | "awningWindow" | "casementWindow";
 
 type Product = {
   title: string;
@@ -16,57 +16,115 @@ type Product = {
 
 const doors: Product[] = [
   {
-    title: "Pivot Doors",
-    description: "Oversized statement doors designed for dramatic luxury entrances and architectural impact.",
-    note: "The door panel rotates from a pivot point instead of traditional side hinges, creating a smooth and impressive opening motion.",
-    sizes: ['42" x 96"', '48" x 96"', '60" x 96"', '72" x 108"', "Custom Oversized"],
-    tags: ["Grand Entry", "Custom Size", "Premium Finish"],
-    demo: "pivot",
+    title: "Folding Door",
+    description: "Luxury aluminum folding door system designed for wide openings, patios, and indoor-outdoor living.",
+    note: "Multiple door panels fold and stack together to open a large wall section with a clean architectural look.",
+    sizes: ['72" x 80"', '96" x 96"', '144" x 96"', '192" x 96"', '240" x 120"'],
+    tags: ["Aluminum Door", "Folding System", "Wide Opening"],
+    demo: "bifold",
   },
   {
-    title: "Sliding Glass Doors",
-    description: "Large glass systems designed to connect interior living spaces with patios, gardens, and views.",
-    note: "One panel glides horizontally across the track to create a clean, space-saving opening with wide visibility.",
+    title: "Sliding Door",
+    description: "Modern aluminum sliding door system with smooth horizontal movement and slim luxury profile.",
+    note: "One panel slides across the track to create a space-saving opening with strong visibility and clean operation.",
     sizes: ['60" x 80"', '96" x 80"', '120" x 96"', '144" x 96"', "Custom Multi-Panel"],
-    tags: ["Wide Opening", "Indoor-Outdoor", "Slim Profile"],
+    tags: ["Aluminum Door", "Sliding System", "Slim Profile"],
     demo: "slidingDoor",
   },
   {
-    title: "Bi-Fold Doors",
-    description: "Elegant folding glass panels for entertainment spaces and luxury indoor-outdoor transitions.",
-    note: "Multiple panels fold and stack together, opening a large wall section for maximum access and view.",
-    sizes: ['72" x 80"', '96" x 96"', '144" x 96"', '192" x 96"', '240" x 120"'],
-    tags: ["Folding System", "Open Wall", "Luxury Patio"],
-    demo: "bifold",
+    title: "Pivot Door",
+    description: "Statement aluminum pivot door designed for luxury entries and dramatic architectural impact.",
+    note: "The panel rotates from a pivot point instead of traditional hinges, creating an impressive and smooth entrance motion.",
+    sizes: ['42" x 96"', '48" x 96"', '60" x 96"', '72" x 108"', "Custom Oversized"],
+    tags: ["Aluminum Door", "Grand Entry", "Custom Size"],
+    demo: "pivot",
+  },
+  {
+    title: "Casement Door",
+    description: "Elegant aluminum casement door system for refined access points and clean modern elevations.",
+    note: "The door opens outward or inward from side hinges for simple operation and classic architectural function.",
+    sizes: ['32" x 80"', '36" x 80"', '42" x 96"', '48" x 96"', "Custom Sizes"],
+    tags: ["Aluminum Door", "Hinged Operation", "Clean Detail"],
+    demo: "pivot",
+  },
+  {
+    title: "Barn Door",
+    description: "Contemporary aluminum barn door style for feature openings, interiors, and specialty design applications.",
+    note: "The panel slides along an exposed track, creating a decorative statement while saving swing space.",
+    sizes: ['36" x 84"', '42" x 84"', '48" x 96"', '60" x 96"', "Custom Sizes"],
+    tags: ["Aluminum Door", "Feature Opening", "Space Saving"],
+    demo: "slidingDoor",
   },
 ];
 
 const windows: Product[] = [
   {
-    title: "Fixed Picture Windows",
-    description: "Minimal framed glass designed to capture views, daylight, and clean architectural composition.",
-    note: "Fixed windows do not open. They are ideal when the goal is maximum glass area, view, and light.",
-    sizes: ['24" x 24"', '48" x 60"', '60" x 72"', '72" x 96"', "Custom Large Format"],
-    tags: ["Clear View", "Large Glass", "Minimal Frame"],
-    demo: "fixedWindow",
+    title: "Folding Window",
+    description: "Luxury aluminum folding window system for pass-through counters, entertaining areas, and wide openings.",
+    note: "Multiple window panels fold and stack to open a large horizontal section with a clean luxury appearance.",
+    sizes: ['48" x 36"', '72" x 48"', '96" x 48"', '120" x 60"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Folding System", "Open View"],
+    demo: "bifold",
   },
   {
-    title: "Sliding Windows",
-    description: "Modern horizontal window systems with clean lines and smooth everyday operation.",
-    note: "One sash slides horizontally to open and close, offering simple ventilation and a contemporary appearance.",
+    title: "Awning Window",
+    description: "Top-hinged aluminum window designed for protected ventilation and refined modern detailing.",
+    note: "The panel opens outward from the bottom while hinged at the top, allowing airflow with a protected opening style.",
+    sizes: ['24" x 24"', '30" x 24"', '36" x 24"', '48" x 24"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Top Hinged", "Air Flow"],
+    demo: "awningWindow",
+  },
+  {
+    title: "Sliding Window",
+    description: "Modern aluminum sliding window system with smooth movement, clean lines, and everyday comfort.",
+    note: "One sash slides horizontally to open and close, offering simple ventilation and a contemporary look.",
     sizes: ['24" x 36"', '30" x 60"', '36" x 72"', '48" x 24"', "Custom Sizes"],
-    tags: ["Smooth Slide", "Ventilation", "Modern Line"],
+    tags: ["Aluminum Window", "Smooth Slide", "Modern Line"],
     demo: "slidingWindow",
   },
   {
-    title: "Awning Windows",
-    description: "Top-hinged windows designed for protected ventilation and refined modern detailing.",
-    note: "The panel opens outward from the bottom while hinged at the top, helping airflow even with light rain protection.",
-    sizes: ['24" x 24"', '30" x 24"', '36" x 24"', '48" x 24"', "Custom Sizes"],
-    tags: ["Top Hinged", "Air Flow", "Elegant Detail"],
+    title: "Crank Window",
+    description: "Aluminum crank window system designed for controlled ventilation and smooth mechanical operation.",
+    note: "The sash opens with a crank handle, giving the customer easy control over airflow and opening angle.",
+    sizes: ['24" x 36"', '30" x 48"', '36" x 60"', '42" x 60"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Crank Operation", "Ventilation"],
+    demo: "casementWindow",
+  },
+  {
+    title: "Casement Window",
+    description: "Side-hinged aluminum window with elegant operation, strong airflow, and clean architectural presence.",
+    note: "The sash swings outward from the side, making it ideal for ventilation and refined modern elevations.",
+    sizes: ['24" x 36"', '30" x 60"', '36" x 72"', '48" x 24"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Side Hinged", "Clean Profile"],
+    demo: "casementWindow",
+  },
+  {
+    title: "Tilt and Turn Window",
+    description: "Premium aluminum tilt and turn window system offering dual operation for ventilation and easy access.",
+    note: "The sash can tilt inward from the top or swing inward like a casement, giving two functions in one window.",
+    sizes: ['24" x 36"', '30" x 48"', '36" x 60"', '48" x 72"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Dual Function", "European Style"],
     demo: "awningWindow",
   },
+  {
+    title: "Double Hung Window",
+    description: "Classic aluminum double hung window system with balanced vertical movement and refined proportions.",
+    note: "Two sashes move vertically, allowing flexible ventilation from the top, bottom, or both openings.",
+    sizes: ['24" x 36"', '30" x 54"', '36" x 60"', '48" x 72"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Vertical Slide", "Classic Function"],
+    demo: "slidingWindow",
+  },
+  {
+    title: "Skylight Window",
+    description: "Aluminum skylight window designed to bring natural overhead light into premium interiors.",
+    note: "Installed at the roof or ceiling plane, skylight windows increase daylight and create a more open architectural feeling.",
+    sizes: ['24" x 24"', '24" x 48"', '30" x 60"', '48" x 48"', "Custom Sizes"],
+    tags: ["Aluminum Window", "Natural Light", "Roof Opening"],
+    demo: "fixedWindow",
+  },
 ];
+
+
 
 function DemoGraphic({ type }: { type: DemoType }) {
   if (type === "slidingDoor") {
@@ -110,6 +168,14 @@ function DemoGraphic({ type }: { type: DemoType }) {
     return (
       <div className="relative h-48 w-72 border border-yellow-400/50 [perspective:900px]">
         <motion.div animate={{ rotateX: [0, -30, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} style={{ transformOrigin: "top center" }} className="absolute inset-5 border border-yellow-400 bg-yellow-400/5" />
+      </div>
+    );
+  }
+
+  if (type === "casementWindow") {
+    return (
+      <div className="relative h-48 w-72 border border-yellow-400/50 [perspective:900px]">
+        <motion.div animate={{ rotateY: [0, -28, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} style={{ transformOrigin: "left center" }} className="absolute inset-5 border border-yellow-400 bg-yellow-400/5" />
       </div>
     );
   }
@@ -220,13 +286,13 @@ export default function LuxoraWebsite() {
 
       <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-5 pt-28 text-center md:px-6 md:pt-24">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10">
-         <motion.img
-  src="/logo.jpg"
-  alt="Luxora Logo"
-  className="mx-auto mb-6 w-[260px] sm:w-[340px] md:mb-8 md:w-[520px]"
-  animate={{ scale: [1, 1.01, 1] }}
-  transition={{ duration: 5, repeat: Infinity }}
-/>
+          <motion.img
+            src="/logo.jpg"
+            alt="Luxora Logo"
+            className="mx-auto mb-6 w-[260px] sm:w-[340px] md:mb-8 md:w-[520px]"
+            animate={{ scale: [1, 1.01, 1] }}
+            transition={{ duration: 5, repeat: Infinity }}
+          />
         </motion.div>
         <p className="relative z-10 mx-auto mt-2 max-w-2xl text-base leading-7 text-neutral-300 md:text-lg md:leading-8">
           Luxury doors and windows crafted for refined architecture, premium homes, and custom openings.
@@ -236,13 +302,12 @@ export default function LuxoraWebsite() {
           <a href="#quote" className="rounded-xl bg-yellow-400 px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-black transition hover:bg-yellow-300">Request Quote</a>
         </div>
       </section>
-
-      <SectionTitle id="doors" title="Luxury Door Systems" text="Each door system includes an animated motion demo, description, function note, sizes, and premium feature tags in one place." />
+      <SectionTitle id="doors" title="Aluminum Door" text="Each door system includes an animated motion demo, description, function note, sizes, and premium feature tags in one place." />
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:px-10">
         {doors.map((item) => <ProductCard key={item.title} item={item} />)}
       </section>
 
-      <SectionTitle id="windows" title="Architectural Windows" text="Clean line-art window graphics show customers how each window works while keeping the page professional and luxury-focused." />
+      <SectionTitle id="windows" title="Aluminum Window" text="Clean line-art window graphics show customers how each window works while keeping the page professional and luxury-focused." />
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 md:px-10">
         {windows.map((item) => <ProductCard key={item.title} item={item} />)}
       </section>
