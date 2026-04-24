@@ -12,16 +12,20 @@ type Product = {
   sizes: string[];
   tags: string[];
   demo: DemoType;
+  featured?: boolean;
 };
+
+type FoldingConfig = "2-panel" | "4-panel" | "custom";
 
 const doors: Product[] = [
   {
-    title: "Folding Door",
-    description: "Luxury aluminum folding door system designed for wide openings, patios, and indoor-outdoor living.",
-    note: "Multiple door panels fold and stack together to open a large wall section with a clean architectural look.",
-    sizes: ['72" x 80"', '96" x 96"', '144" x 96"', '192" x 96"', '240" x 120"'],
-    tags: ["Aluminum Door", "Folding System", "Wide Opening"],
+    title: "Folding Doors",
+    description: "Premium aluminum folding door systems engineered for expansive openings, seamless indoor-outdoor transitions, and refined architectural elegance.",
+    note: "Top-hung multi-panel system that folds neatly to one or both sides, allowing full opening clearance and smooth operation.",
+    sizes: ['24" x 80"', '30" x 80"', '32" x 80"', '36" x 80"', '48" x 80"', '60" x 80"', '72" x 80"', '30" x 96"', '36" x 96"', '60" x 96"', '72" x 96"'],
+    tags: ["Aluminum System", "Folding Mechanism", "Wide Opening", "Indoor-Outdoor Living", "Modern Architecture", "Premium Hardware"],
     demo: "bifold",
+    featured: true,
   },
   {
     title: "Sliding Door",
@@ -198,6 +202,88 @@ function DemoGraphic({ type }: { type: DemoType }) {
   );
 }
 
+function FoldingDoorConfigurator() {
+  const [config, setConfig] = useState<FoldingConfig>("2-panel");
+  const [size, setSize] = useState("36 x 80");
+
+  const sizeGroups: Record<FoldingConfig, string[]> = {
+    "2-panel": ["24 x 80", "30 x 80", "32 x 80", "36 x 80", "30 x 96", "36 x 96"],
+    "4-panel": ["48 x 80", "60 x 80", "72 x 80", "60 x 96", "72 x 96"],
+    custom: ["Custom Width x Custom Height"],
+  };
+
+  const selectedSizes = sizeGroups[config];
+  const customSelected = config === "custom";
+  const [widthValue, heightValue] = customSelected ? [0, 0] : size.split(" x ").map((value) => Number(value));
+  const roughWidth = customSelected ? "Custom + 1” to 1.5”" : `${widthValue + 1}" to ${widthValue + 1.5}"`;
+  const roughHeight = customSelected ? "Custom + 1” to 1.5”" : `${heightValue + 1}" to ${heightValue + 1.5}"`;
+
+  const handleConfigChange = (nextConfig: FoldingConfig) => {
+    setConfig(nextConfig);
+    setSize(sizeGroups[nextConfig][0]);
+  };
+
+  return (
+    <div className="mt-8 rounded-[24px] border border-yellow-400/20 bg-black/45 p-5">
+      <div className="mb-4 text-xs uppercase tracking-[0.28em] text-yellow-400">Size selector</div>
+
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
+        {([
+          ["2-panel", "Single Bifold / 2 Panels"],
+          ["4-panel", "Double Bifold / 4 Panels"],
+          ["custom", "Custom Opening"],
+        ] as [FoldingConfig, string][]).map(([value, label]) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => handleConfigChange(value)}
+            className={`rounded-xl border px-4 py-3 text-left text-sm transition ${config === value ? "border-yellow-400 bg-yellow-400 text-black" : "border-white/10 text-neutral-300 hover:border-yellow-400/50"}`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-5 lg:grid-cols-[1fr_0.9fr]">
+        <div>
+          <div className="mb-3 text-xs uppercase tracking-[0.24em] text-neutral-500">Select nominal size</div>
+          <div className="flex flex-wrap gap-2">
+            {selectedSizes.map((item) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setSize(item)}
+                className={`rounded-full border px-3 py-1.5 text-sm transition ${size === item ? "border-yellow-400 bg-yellow-400/15 text-yellow-400" : "border-white/10 text-neutral-300 hover:border-yellow-400/40"}`}
+              >
+                {item.replace(/ x /g, '” x ')}{item.includes("Custom") ? "" : "”"}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <div className="mb-3 text-xs uppercase tracking-[0.24em] text-yellow-400">Rough opening calculator</div>
+          <p className="mb-4 text-sm leading-6 text-neutral-400">Rough opening is typically 1” to 1.5” wider and taller than the nominal door size.</p>
+          <div className="grid gap-3 text-sm">
+            <div className="flex justify-between gap-4 border-b border-white/10 pb-2">
+              <span className="text-neutral-400">Selected door</span>
+              <span className="text-white">{size.includes("Custom") ? size : `${size.replace(/ x /g, '” x ')}”`}</span>
+            </div>
+            <div className="flex justify-between gap-4 border-b border-white/10 pb-2">
+              <span className="text-neutral-400">Recommended RO width</span>
+              <span className="text-yellow-400">{roughWidth}</span>
+            </div>
+            <div className="flex justify-between gap-4">
+              <span className="text-neutral-400">Recommended RO height</span>
+              <span className="text-yellow-400">{roughHeight}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProductCard({ item }: { item: Product }) {
   return (
     <motion.div initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="overflow-hidden rounded-[28px] border border-yellow-400/20 bg-white/[0.025]">
@@ -223,6 +309,7 @@ function ProductCard({ item }: { item: Product }) {
               <span key={tag} className="rounded-full border border-yellow-400/30 bg-yellow-400/10 px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-yellow-400">{tag}</span>
             ))}
           </div>
+          {item.featured ? <FoldingDoorConfigurator /> : null}
         </div>
       </div>
     </motion.div>
@@ -287,7 +374,7 @@ export default function LuxoraWebsite() {
       <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-5 pt-28 text-center md:px-6 md:pt-24">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10">
           <motion.img
-            src="/logo.jpg"
+            src="/luxora-logo.png"
             alt="Luxora Logo"
             className="mx-auto mb-6 w-[260px] sm:w-[340px] md:mb-8 md:w-[520px]"
             animate={{ scale: [1, 1.01, 1] }}
