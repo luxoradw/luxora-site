@@ -374,7 +374,7 @@ export default function LuxoraWebsite() {
       <section id="home" className="relative flex min-h-screen flex-col items-center justify-center px-5 pt-28 text-center md:px-6 md:pt-24">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10">
           <motion.img
-            src="/luxora-logo.png"
+            src="/luxora-logo.jpg"
             alt="Luxora Logo"
             className="mx-auto mb-6 w-[260px] sm:w-[340px] md:mb-8 md:w-[520px]"
             animate={{ scale: [1, 1.01, 1] }}
