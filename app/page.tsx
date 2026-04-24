@@ -5,9 +5,9 @@ export default function LuxoraWebsite() {
     <main className="min-h-screen bg-black text-white">
       <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
         <img
-          src="/luxora-logo.png"
-          alt="Luxora Logo"
-          className="mx-auto mb-8 w-[280px] md:w-[520px]"
+  src="/luxora-logo.png"
+  alt="Luxora Logo"
+
         />
 
         <p className="max-w-2xl text-lg leading-8 text-neutral-300">
