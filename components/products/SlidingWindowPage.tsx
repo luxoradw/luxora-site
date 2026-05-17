@@ -64,7 +64,7 @@ export default function SlidingWindowPage() {
           <div className="rounded-[2rem] border border-[#c8a45d]/20 bg-[#0b0b0b] p-5 shadow-[0_35px_100px_rgba(0,0,0,.6)]">
             <SlidingVisual
               panels={panels}
-              panelArray={panelArray}
+              panelArray={[]}
               getPanelMotion={getPanelMotion}
             />
           </div>
@@ -93,7 +93,7 @@ export default function SlidingWindowPage() {
 
             <SlidingVisual
               panels={panels}
-              panelArray={panelArray}
+              panelArray={[]}
               getPanelMotion={getPanelMotion}
             />
           </div>
