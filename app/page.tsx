@@ -19,12 +19,7 @@ export default function HomePage() {
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           
-          <a
-            href="/doors"
-            className="rounded-2xl border border-yellow-400 px-10 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
-          >
-            Explore Collection
-          </a>
+          
 
           <a
             href="/quote"

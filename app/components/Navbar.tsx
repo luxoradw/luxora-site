@@ -92,25 +92,67 @@ export default function Navbar() {
 </div>
 
           <a
-            href="mailto:Luxoradw@gmail.com"
+            href="mailto:Luxora.dw@gmail.com"
             className="rounded-xl border border-yellow-400/60 px-5 py-2 text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
           >
             Contact
           </a>
         </div>
       </div>
-    {open && (
+{open && (
   <div className="border-t border-yellow-400/10 bg-black px-6 py-6 md:hidden">
-    <div className="space-y-5 text-sm uppercase tracking-[0.22em] text-neutral-300">
-      <a href="/" className="block text-yellow-400" onClick={() => setOpen(false)}>Home</a>
-      <a href="/about" className="block" onClick={() => setOpen(false)}>About Luxora</a>
-      <a href="/about/team" className="block" onClick={() => setOpen(false)}>Team</a>
-      <a href="/about/quality" className="block" onClick={() => setOpen(false)}>Quality</a>
-      <a href="/about/doors" className="block" onClick={() => setOpen(false)}>Door Systems</a>
-      <a href="/about/windows" className="block" onClick={() => setOpen(false)}>Window Systems</a>
-      <a href="mailto:Luxoradw@gmail.com" className="block rounded-xl border border-yellow-400/60 px-5 py-3 text-center text-yellow-400" onClick={() => setOpen(false)}>
+    <div className="space-y-6 text-sm uppercase tracking-[0.22em] text-neutral-300">
+
+      <a href="/" className="block text-yellow-400">
+        Home
+      </a>
+
+      <div className="space-y-3">
+        <p className="text-xs tracking-[0.3em] text-yellow-400">
+          Doors
+        </p>
+
+        <a href="/doors/folding" className="block">Folding Door</a>
+        <a href="/doors/sliding" className="block">Sliding Door</a>
+        <a href="/doors/pivot" className="block">Pivot Door</a>
+        <a href="/doors/casement" className="block">Casement Door</a>
+        <a href="/doors/barn" className="block">Barn Door</a>
+      </div>
+
+      <div className="space-y-3">
+        <p className="text-xs tracking-[0.3em] text-yellow-400">
+          Windows
+        </p>
+
+        <a href="/windows/folding" className="block">Folding Window</a>
+        <a href="/windows/fixed" className="block">Fixed Window</a>
+        <a href="/windows/sliding" className="block">Sliding Window</a>
+        <a href="/windows/casement" className="block">Casement Window</a>
+        <a href="/windows/tilt-turn" className="block">Tilt & Turn</a>
+        <a href="/windows/double-hung" className="block">Double Hung</a>
+        <a href="/windows/gas-strut" className="block">Gas Strut Window</a>
+        <a href="/windows/skylight" className="block">Skylight</a>
+      </div>
+
+      <div className="space-y-3">
+        <p className="text-xs tracking-[0.3em] text-yellow-400">
+          About
+        </p>
+
+        <a href="/about" className="block">About Luxora</a>
+        <a href="/about/team" className="block">Team</a>
+        <a href="/about/quality" className="block">Quality</a>
+        <a href="/about/doors" className="block">Door Systems</a>
+        <a href="/about/windows" className="block">Window Systems</a>
+      </div>
+
+      <a
+        href="mailto:Luxoradw@gmail.com"
+        className="block rounded-xl border border-yellow-400/60 px-5 py-3 text-center text-yellow-400"
+      >
         Contact
       </a>
+
     </div>
   </div>
 )}
