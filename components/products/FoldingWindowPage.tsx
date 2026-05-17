@@ -118,7 +118,7 @@ export default function FoldingWindowPage() {
             <FoldingVisual
               selected={selected}
               open={open}
-              panelArray={panelArray}
+              panelArray={[]}
             />
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function FoldingWindowPage() {
             <FoldingVisual
               selected={selected}
               open={open}
-              panelArray={panelArray}
+              panelArray={[]}
             />
           </div>
 
@@ -264,7 +264,7 @@ export default function FoldingWindowPage() {
             <FoldingVisual
               selected={selected}
               open={open}
-              panelArray={panelArray}
+              panelArray={[]}
             />
 
             {/* RIGHT */}
