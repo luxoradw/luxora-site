@@ -30,6 +30,12 @@ export default function RootLayout({
 >
   <Navbar />
   {children}
+
+<footer className="border-t border-white/10 bg-[#050505] px-6 py-8 text-center md:px-14">
+  <p className="text-[11px] uppercase tracking-[0.28em] text-white/40">
+    © 2026 Luxora Doors & Windows. All rights reserved.
+  </p>
+</footer>
 </body>
     </html>
   );

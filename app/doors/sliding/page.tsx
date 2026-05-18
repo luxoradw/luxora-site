@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 
 type PanelCount = 2 | 3 | 4;
@@ -11,22 +11,20 @@ export default function SlidingDoorPage() {
   const [direction, setDirection] = useState<OpenDirection>("left");
   const [open, setOpen] = useState(true);
 
-  const panelArray = useMemo(() => Array.from({ length: panels }), [panels]);
-
-  const getPanelMotion = (i: number) => {
+  const getPanelMotion = (i: number): { x: number } => {
     if (!open) return { x: 0 };
 
     if (direction === "left") {
-      return i === panels - 1 ? { x: -90 } : { x: 0 };
+      return i === panels - 1 ? { x: -120 } : { x: 0 };
     }
 
     if (direction === "right") {
-      return i === 0 ? { x: 90 } : { x: 0 };
+      return i === 0 ? { x: 120 } : { x: 0 };
     }
 
     if (direction === "center") {
-      if (i === 0) return { x: -70 };
-      if (i === panels - 1) return { x: 70 };
+      if (i === 0) return { x: -90 };
+      if (i === panels - 1) return { x: 90 };
     }
 
     return { x: 0 };
@@ -38,30 +36,19 @@ export default function SlidingDoorPage() {
       <section className="relative overflow-hidden px-6 py-24 md:px-14">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(200,164,93,.18),transparent_42%)]" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="mb-5 text-[11px] uppercase tracking-[0.45em] text-[#c8a45d]">
-              Luxora Sliding Door Systems
-            </p>
+        <div className="relative mx-auto max-w-4xl">
+          <p className="mb-6 text-2xl font-light uppercase tracking-[0.22em] text-[#c8a45d] md:text-4xl">
+            Luxora Sliding Door Systems
+          </p>
 
-            <h1 className="max-w-3xl text-4xl font-light leading-tight md:text-6xl">
-              Slim frame sliding doors with expansive glass and luxury motion.
-            </h1>
+          <h1 className="max-w-3xl text-2xl font-light leading-tight md:text-3xl">
+            Slim frame sliding doors with expansive glass and luxury motion.
+          </h1>
 
-            <p className="mt-6 max-w-2xl text-sm leading-8 text-white/55">
-              Engineered for panoramic openings, thermal performance, smooth
-              operation, and refined architectural detailing.
-            </p>
-          </div>
-
-          {/* HERO VISUAL */}
-          <div className="rounded-[2rem] border border-[#c8a45d]/20 bg-[#0b0b0b] p-5 shadow-[0_35px_100px_rgba(0,0,0,.6)]">
-            <SlidingVisual
-              panels={panels}
-              panelArray={[]}
-              getPanelMotion={getPanelMotion}
-            />
-          </div>
+          <p className="mt-6 max-w-2xl text-sm leading-8 text-white/55">
+            Engineered for panoramic openings, thermal performance, smooth
+            operation, and refined architectural detailing.
+          </p>
         </div>
       </section>
 
@@ -82,11 +69,7 @@ export default function SlidingDoorPage() {
               </span>
             </div>
 
-            <SlidingVisual
-              panels={panels}
-              panelArray={[]}
-              getPanelMotion={getPanelMotion}
-            />
+            <SlidingVisual panels={panels} getPanelMotion={getPanelMotion} />
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-[#101010] p-6">
@@ -290,16 +273,12 @@ export default function SlidingDoorPage() {
     </main>
   );
 }
-
-function SlidingVisual({
-  panels,
-  panelArray,
-  getPanelMotion,
-}: {
+function SlidingVisual(props: {
   panels: number;
-  panelArray: undefined[];
   getPanelMotion: (i: number) => { x: number };
 }) {
+  const { panels, getPanelMotion } = props;
+  const panelArray = Array.from({ length: panels });
   return (
     <div className="relative min-h-[420px] overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#080808]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(200,164,93,.14),transparent_42%)]" />
@@ -319,7 +298,10 @@ function SlidingVisual({
               animate={getPanelMotion(i)}
               transition={{ type: "spring", stiffness: 70, damping: 18 }}
               className="relative h-full overflow-hidden border border-[#c8a45d]/50 bg-[#101010] shadow-[8px_0_25px_rgba(0,0,0,.45)]"
-              style={{ width: `${100 / panels}%` }}
+              style={{
+                width: `${100 / panels}%`,
+                zIndex: panels - i,
+              }}
             >
               <div className="absolute inset-0 border-[7px] border-[#1b1b1b]" />
               <div className="absolute inset-[8px] bg-gradient-to-br from-white/18 via-white/5 to-black/35" />
@@ -342,7 +324,7 @@ function Control({
   children,
 }: {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div>
@@ -359,7 +341,7 @@ function SpecCard({
   children,
 }: {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div className="rounded-[2rem] border border-white/10 bg-[#0d0d0d] p-7">
@@ -381,7 +363,7 @@ function SpecLine({ label, value }: { label: string; value: string }) {
 }
 
 function LuxuryIcon({ type }: { type: string }) {
-  if (type === "thermal")
+  if (type === "thermal") {
     return (
       <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
         <rect x="18" y="8" width="28" height="48" rx="4" stroke="currentColor" strokeWidth="2" />
@@ -389,8 +371,9 @@ function LuxuryIcon({ type }: { type: string }) {
         <path d="M31 18c-4 5 4 8 0 13-4 5 4 8 0 14" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     );
+  }
 
-  if (type === "lock")
+  if (type === "lock") {
     return (
       <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
         <rect x="16" y="28" width="32" height="24" rx="3" stroke="currentColor" strokeWidth="2" />
@@ -399,8 +382,9 @@ function LuxuryIcon({ type }: { type: string }) {
         <path d="M32 43v5" stroke="currentColor" strokeWidth="1.6" />
       </svg>
     );
+  }
 
-  if (type === "track")
+  if (type === "track") {
     return (
       <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
         <path d="M8 40h48" stroke="currentColor" strokeWidth="2" />
@@ -409,8 +393,9 @@ function LuxuryIcon({ type }: { type: string }) {
         <path d="M12 44l6 6h28l6-6" stroke="currentColor" strokeWidth="1.5" opacity=".65" />
       </svg>
     );
+  }
 
-  if (type === "slim")
+  if (type === "slim") {
     return (
       <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
         <rect x="10" y="12" width="44" height="40" rx="2" stroke="currentColor" strokeWidth="2" />
@@ -418,8 +403,9 @@ function LuxuryIcon({ type }: { type: string }) {
         <path d="M32 12v40" stroke="currentColor" strokeWidth="1.2" />
       </svg>
     );
+  }
 
-  if (type === "panel")
+  if (type === "panel") {
     return (
       <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
         <rect x="8" y="16" width="48" height="32" rx="2" stroke="currentColor" strokeWidth="2" />
@@ -427,6 +413,7 @@ function LuxuryIcon({ type }: { type: string }) {
         <path d="M12 52h40" stroke="currentColor" strokeWidth="1.3" opacity=".55" />
       </svg>
     );
+  }
 
   return (
     <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none">
