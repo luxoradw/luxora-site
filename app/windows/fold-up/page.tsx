@@ -2,13 +2,35 @@
 
 import { motion } from "framer-motion";
 
-export default function GasStrutWindowPage() {
+export default function FoldUpWindowPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
 
       {/* BACKGROUND */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.16),transparent_55%)]" />
+
+        {[...Array(10)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-yellow-500/10"
+            style={{
+              width: i % 2 === 0 ? "1px" : "180px",
+              height: i % 2 === 0 ? "180px" : "1px",
+              left: `${(i * 11) % 100}%`,
+              top: `${(i * 14) % 100}%`,
+            }}
+            animate={{
+              opacity: [0.1, 0.35, 0.1],
+              y: [0, -25, 0],
+            }}
+            transition={{
+              duration: 7 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
 
       {/* HERO */}
@@ -21,7 +43,7 @@ export default function GasStrutWindowPage() {
           </p>
 
           <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Gas Strut
+            Fold Up
             <br />
             Window System
           </h1>
@@ -29,20 +51,21 @@ export default function GasStrutWindowPage() {
           <div className="mt-8 h-px w-24 bg-yellow-500/70" />
 
           <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Gas strut window system with assisted upward opening function for
-            modern kitchens, bars, patios, and indoor-outdoor service spaces
-            with smooth operation and luxury architectural appearance.
+            Fold up window system designed for kitchen bars, patios, pool
+            houses, and indoor-outdoor counter openings with smooth upward
+            operation and clean architectural appearance.
           </p>
 
           {/* FEATURES */}
           <div className="mt-14 grid grid-cols-2 gap-4">
+
             {[
-              "Gas Assisted Opening",
-              "Smooth Lift System",
-              "Indoor-Outdoor Connection",
-              "Modern Bar Opening",
-              "Luxury Aluminum Finish",
-              "Custom Glass Options",
+              "Upward Opening",
+              "Counter Connection",
+              "Wide Service Opening",
+              "Luxury Aluminum Frame",
+              "Outdoor Living Design",
+              "Custom Sizes",
             ].map((item) => (
               <div
                 key={item}
@@ -62,11 +85,13 @@ export default function GasStrutWindowPage() {
 
             <div className="absolute inset-5 border border-yellow-500/20" />
 
-            {/* OPENING PANEL */}
+            <div className="absolute left-[12%] top-[44%] h-[42%] w-[76%] border border-white/20 bg-white/[0.02]" />
+
+            {/* OPEN PANEL */}
             <motion.div
               animate={{
-                rotateX: [0, 68, 0],
-                y: [0, -38, 0],
+                rotateX: [0, 72, 0],
+                y: [0, -45, 0],
               }}
               transition={{
                 duration: 4,
@@ -74,37 +99,19 @@ export default function GasStrutWindowPage() {
                 ease: "easeInOut",
               }}
               className="absolute left-[12%] top-[44%] h-[42%] w-[76%] origin-top border border-yellow-400/80 bg-yellow-500/10"
-              style={{ transformStyle: "preserve-3d" }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             />
 
-            {/* GAS STRUTS */}
-            <motion.div
-              animate={{
-                rotate: [-24, -48, -24],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[14%] top-[58%] h-[2px] w-24 origin-left bg-yellow-400/80"
-            />
-
-            <motion.div
-              animate={{
-                rotate: [24, 48, 24],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute right-[14%] top-[58%] h-[2px] w-24 origin-right bg-yellow-400/80"
-            />
+            {/* TOP HINGE */}
+            <div className="absolute left-[12%] top-[44%] h-px w-[76%] bg-yellow-400/70" />
 
             {/* REFLECTION */}
             <motion.div
-              animate={{ x: ["-120%", "140%"] }}
+              animate={{
+                x: ["-120%", "140%"],
+              }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
@@ -114,16 +121,16 @@ export default function GasStrutWindowPage() {
             />
           </div>
 
-          {/* LABELS */}
+          {/* SIDE LABELS */}
           <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Gas Assisted
+              Upward Lift
             </p>
           </div>
 
           <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Smooth Opening
+              Bar Opening
             </p>
           </div>
         </div>
@@ -146,15 +153,15 @@ export default function GasStrutWindowPage() {
             {[
               [
                 "Function",
-                "Gas strut system assists the panel during opening and closing for smoother movement.",
+                "Panel lifts upward to create a clear service opening for kitchen bars and patios.",
               ],
               [
                 "Application",
-                "Perfect for kitchen counters, patios, cafés, restaurants, and entertainment spaces.",
+                "Ideal for indoor-outdoor counter spaces, pool areas, cafés, and entertainment zones.",
               ],
               [
                 "Design",
-                "Clean aluminum frame design with premium hardware and luxury architectural appearance.",
+                "Modern aluminum frame with clean sightlines and premium architectural appearance.",
               ],
             ].map(([title, text]) => (
               <div

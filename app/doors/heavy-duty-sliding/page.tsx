@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function GasStrutWindowPage() {
+export default function HeavyDutySlidingDoorPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
 
@@ -17,32 +17,32 @@ export default function GasStrutWindowPage() {
         {/* LEFT */}
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Window Collection
+            Luxora Door Collection
           </p>
 
           <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Gas Strut
+            Heavy Duty
             <br />
-            Window System
+            Sliding Door
           </h1>
 
           <div className="mt-8 h-px w-24 bg-yellow-500/70" />
 
           <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Gas strut window system with assisted upward opening function for
-            modern kitchens, bars, patios, and indoor-outdoor service spaces
-            with smooth operation and luxury architectural appearance.
+            Heavy duty sliding door system engineered for oversized openings,
+            stronger structural performance, smooth panel movement, and modern
+            luxury architectural applications with panoramic glass visibility.
           </p>
 
           {/* FEATURES */}
           <div className="mt-14 grid grid-cols-2 gap-4">
             {[
-              "Gas Assisted Opening",
-              "Smooth Lift System",
-              "Indoor-Outdoor Connection",
-              "Modern Bar Opening",
-              "Luxury Aluminum Finish",
-              "Custom Glass Options",
+              "Oversized Panels",
+              "Heavy Duty Track",
+              "Thermal Break",
+              "Large Architectural Openings",
+              "Luxury Aluminum System",
+              "Smooth Sliding Performance",
             ].map((item) => (
               <div
                 key={item}
@@ -58,72 +58,58 @@ export default function GasStrutWindowPage() {
         <div className="relative flex items-center justify-center">
 
           {/* FRAME */}
-          <div className="relative h-[430px] w-[520px] max-w-full border border-yellow-500/40 bg-white/[0.03]">
+          <div className="relative h-[540px] w-[780px] max-w-full border-2 border-yellow-500/40 bg-white/[0.03]">
 
             <div className="absolute inset-5 border border-yellow-500/20" />
 
-            {/* OPENING PANEL */}
-            <motion.div
-              animate={{
-                rotateX: [0, 68, 0],
-                y: [0, -38, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[12%] top-[44%] h-[42%] w-[76%] origin-top border border-yellow-400/80 bg-yellow-500/10"
-              style={{ transformStyle: "preserve-3d" }}
-            />
+            {/* FIXED PANEL */}
+            <div className="absolute left-0 top-0 h-full w-1/2 border-r border-white/10 bg-white/[0.02]" />
 
-            {/* GAS STRUTS */}
+            {/* MOVING PANEL */}
             <motion.div
               animate={{
-                rotate: [-24, -48, -24],
+                x: [0, 140, 0],
               }}
               transition={{
-                duration: 4,
+                duration: 4.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute left-[14%] top-[58%] h-[2px] w-24 origin-left bg-yellow-400/80"
-            />
+              className="absolute right-0 top-0 h-full w-1/2 border-l-2 border-yellow-500/50 bg-yellow-500/10"
+            >
+              {/* HANDLE */}
+              <div className="absolute left-8 top-1/2 h-32 w-[6px] -translate-y-1/2 bg-yellow-400 shadow-[0_0_20px_rgba(234,179,8,0.8)]" />
 
-            <motion.div
-              animate={{
-                rotate: [24, 48, 24],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute right-[14%] top-[58%] h-[2px] w-24 origin-right bg-yellow-400/80"
-            />
+              <div className="absolute left-8 top-[48%] h-[6px] w-16 bg-yellow-400" />
+            </motion.div>
+
+            {/* TRACK */}
+            <div className="absolute bottom-5 left-[5%] right-[5%] h-[3px] bg-yellow-500/50" />
 
             {/* REFLECTION */}
             <motion.div
-              animate={{ x: ["-120%", "140%"] }}
+              animate={{
+                x: ["-120%", "140%"],
+              }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="absolute top-0 h-full w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              className="absolute top-0 h-full w-28 bg-gradient-to-r from-transparent via-white/20 to-transparent"
             />
           </div>
 
           {/* LABELS */}
           <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Gas Assisted
+              Heavy Duty System
             </p>
           </div>
 
           <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Smooth Opening
+              Oversized Openings
             </p>
           </div>
         </div>
@@ -145,16 +131,16 @@ export default function GasStrutWindowPage() {
 
             {[
               [
-                "Function",
-                "Gas strut system assists the panel during opening and closing for smoother movement.",
+                "Structure",
+                "Engineered for large heavy panels with reinforced aluminum framing and track system.",
               ],
               [
-                "Application",
-                "Perfect for kitchen counters, patios, cafés, restaurants, and entertainment spaces.",
+                "Performance",
+                "Strong thermal insulation, smooth movement, premium sealing, and luxury hardware compatibility.",
               ],
               [
                 "Design",
-                "Clean aluminum frame design with premium hardware and luxury architectural appearance.",
+                "Minimal modern sightlines with panoramic glass openings for luxury residential architecture.",
               ],
             ].map(([title, text]) => (
               <div

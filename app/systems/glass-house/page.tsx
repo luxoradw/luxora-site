@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function GasStrutWindowPage() {
+export default function GlassHousePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
 
@@ -17,32 +17,32 @@ export default function GasStrutWindowPage() {
         {/* LEFT */}
         <div>
           <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Window Collection
+            Luxora Architectural Systems
           </p>
 
           <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Gas Strut
+            Glass House
             <br />
-            Window System
+            System
           </h1>
 
           <div className="mt-8 h-px w-24 bg-yellow-500/70" />
 
           <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Gas strut window system with assisted upward opening function for
-            modern kitchens, bars, patios, and indoor-outdoor service spaces
-            with smooth operation and luxury architectural appearance.
+            Luxury glass house system with premium aluminum framing, panoramic
+            visibility, natural daylight, and elegant architectural design for
+            sunrooms, garden rooms, outdoor lounges, and modern living spaces.
           </p>
 
           {/* FEATURES */}
           <div className="mt-14 grid grid-cols-2 gap-4">
             {[
-              "Gas Assisted Opening",
-              "Smooth Lift System",
+              "Panoramic Glass",
+              "Luxury Outdoor Living",
+              "Modern Aluminum Frame",
+              "Natural Daylight",
+              "Custom Architectural Design",
               "Indoor-Outdoor Connection",
-              "Modern Bar Opening",
-              "Luxury Aluminum Finish",
-              "Custom Glass Options",
             ].map((item) => (
               <div
                 key={item}
@@ -57,73 +57,76 @@ export default function GasStrutWindowPage() {
         {/* RIGHT GRAPHIC */}
         <div className="relative flex items-center justify-center">
 
-          {/* FRAME */}
-          <div className="relative h-[430px] w-[520px] max-w-full border border-yellow-500/40 bg-white/[0.03]">
+          {/* STRUCTURE */}
+          <div className="relative h-[540px] w-[640px] max-w-full">
 
-            <div className="absolute inset-5 border border-yellow-500/20" />
+            {/* BASE */}
+            <div className="absolute bottom-0 left-[10%] h-[300px] w-[80%] border border-yellow-500/40 bg-white/[0.03]" />
 
-            {/* OPENING PANEL */}
+            {/* ROOF */}
+            <div className="absolute left-[16%] top-[90px] h-[2px] w-[34%] rotate-[-28deg] bg-yellow-400/70" />
+
+            <div className="absolute right-[16%] top-[90px] h-[2px] w-[34%] rotate-[28deg] bg-yellow-400/70" />
+
+            {/* CENTER SUPPORT */}
+            <div className="absolute left-1/2 top-[90px] h-[300px] w-px -translate-x-1/2 bg-yellow-500/40" />
+
+            {/* SIDE SUPPORTS */}
+            <div className="absolute left-[18%] top-[140px] h-[250px] w-px bg-yellow-500/30" />
+
+            <div className="absolute right-[18%] top-[140px] h-[250px] w-px bg-yellow-500/30" />
+
+            {/* GLASS PANELS */}
             <motion.div
               animate={{
-                rotateX: [0, 68, 0],
-                y: [0, -38, 0],
+                opacity: [0.25, 0.45, 0.25],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute left-[12%] top-[44%] h-[42%] w-[76%] origin-top border border-yellow-400/80 bg-yellow-500/10"
-              style={{ transformStyle: "preserve-3d" }}
-            />
-
-            {/* GAS STRUTS */}
-            <motion.div
-              animate={{
-                rotate: [-24, -48, -24],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[14%] top-[58%] h-[2px] w-24 origin-left bg-yellow-400/80"
-            />
-
-            <motion.div
-              animate={{
-                rotate: [24, 48, 24],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute right-[14%] top-[58%] h-[2px] w-24 origin-right bg-yellow-400/80"
+              className="absolute left-[12%] top-[120px] h-[260px] w-[76%] bg-white/[0.04]"
             />
 
             {/* REFLECTION */}
             <motion.div
-              animate={{ x: ["-120%", "140%"] }}
+              animate={{
+                x: ["-120%", "140%"],
+              }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="absolute top-0 h-full w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              className="absolute left-[12%] top-[120px] h-[260px] w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            />
+
+            {/* LIGHT GLOW */}
+            <motion.div
+              animate={{
+                opacity: [0.15, 0.35, 0.15],
+                scale: [1, 1.08, 1],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute left-[25%] top-[160px] h-[180px] w-[180px] rounded-full bg-yellow-500/20 blur-3xl"
             />
           </div>
 
           {/* LABELS */}
           <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Gas Assisted
+              Panoramic Glass
             </p>
           </div>
 
           <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
             <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Smooth Opening
+              Luxury Structure
             </p>
           </div>
         </div>
@@ -145,16 +148,16 @@ export default function GasStrutWindowPage() {
 
             {[
               [
-                "Function",
-                "Gas strut system assists the panel during opening and closing for smoother movement.",
+                "Architecture",
+                "Designed for luxury outdoor rooms, garden lounges, patios, and panoramic glass living spaces.",
               ],
               [
-                "Application",
-                "Perfect for kitchen counters, patios, cafés, restaurants, and entertainment spaces.",
+                "Performance",
+                "Premium aluminum framing with insulated glazing and modern structural stability.",
               ],
               [
                 "Design",
-                "Clean aluminum frame design with premium hardware and luxury architectural appearance.",
+                "Elegant glass visibility with refined aluminum detailing and clean architectural geometry.",
               ],
             ].map(([title, text]) => (
               <div

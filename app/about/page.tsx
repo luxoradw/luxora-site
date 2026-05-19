@@ -280,32 +280,32 @@ export default function AboutPage() {
 </div>
 {/* ABOUT PAGE LINKS */}
 
-<div className="absolute left-4 right-4 top-28 z-40 flex flex-wrap gap-3 md:left-10 md:right-auto md:top-1/2 md:-translate-y-1/2 md:flex-col md:gap-6">
+<div className="mt-10 flex flex-col gap-3 md:absolute md:left-10 md:top-1/2 md:z-40 md:mt-0 md:-translate-y-1/2 md:gap-6">
 
   <Link
     href="/about/team"
-    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
   >
     Our Team
   </Link>
 
   <Link
     href="/about/quality"
-    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
   >
     Quality
   </Link>
 
   <Link
     href="/about/windows"
-    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
   >
     Window Systems
   </Link>
 
   <Link
     href="/about/doors"
-    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
   >
     Door Systems
   </Link>
