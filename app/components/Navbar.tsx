@@ -85,7 +85,7 @@ export default function Navbar() {
       </a>
 
       <a
-        href="mailto:Luxoradw@gmail.com"
+        href="mailto:Luxora.dw@gmail.com"
         className="block rounded-xl border border-yellow-400/60 px-5 py-3 text-center text-yellow-400"
       >
         Contact
