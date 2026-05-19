@@ -121,58 +121,126 @@ function HardwareGraphic({ type, size }: { type: string; size: string }) {
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.18),transparent_48%)]" />
+{/* BACKGROUND */}
+<div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-black">
 
-        {hardwareGraphics.map((item, i) => (
-          <motion.div
-            key={i}
-            className="absolute z-10"
-            style={{ left: item.left, top: item.top }}
-            animate={{
-              y: [0, -36, 0],
-              x: [0, i % 2 === 0 ? 24 : -24, 0],
-              rotate: [0, i % 2 === 0 ? 6 : -6, 0],
-            }}
-            transition={{ duration: 8 + i, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <HardwareGraphic type={item.type} size={item.size} />
-          </motion.div>
-        ))}
+  {/* MAIN GOLD GLOW */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.22),transparent_45%)]" />
 
-        {floatingFrames.map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute border border-yellow-500/35 bg-white/[0.025]"
-            style={{
-              width: i % 3 === 0 ? 160 : i % 3 === 1 ? 110 : 210,
-              height: i % 3 === 0 ? 260 : i % 3 === 1 ? 170 : 130,
-              left: `${(i * 13) % 100}%`,
-              top: `${(i * 19) % 100}%`,
-              borderRadius: i % 2 === 0 ? "6px" : "18px",
-            }}
-            animate={{
-              y: [0, -34, 0],
-              x: [0, i % 2 === 0 ? 22 : -22, 0],
-              opacity: [0.18, 0.42, 0.18],
-            }}
-            transition={{ duration: 10 + i, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="absolute left-1/2 top-0 h-full w-px bg-yellow-500/35" />
-            <div className="absolute left-0 top-1/2 h-px w-full bg-yellow-500/35" />
-          </motion.div>
-        ))}
+  {/* LEFT GLOW */}
+  <motion.div
+    animate={{
+      y: [0, -40, 0],
+      x: [0, 30, 0],
+    }}
+    transition={{
+      duration: 14,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute left-[-200px] top-[10%] h-[700px] w-[700px] rounded-full bg-yellow-500/10 blur-3xl"
+  />
 
-        <div className="absolute inset-0 z-20 bg-black/40" />
-      </div>
+  {/* RIGHT GLOW */}
+  <motion.div
+    animate={{
+      y: [0, 50, 0],
+      x: [0, -30, 0],
+    }}
+    transition={{
+      duration: 18,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute right-[-220px] top-[20%] h-[700px] w-[700px] rounded-full bg-yellow-500/10 blur-3xl"
+  />
 
- {/* HERO */}
+  {/* BOTTOM GLOW */}
+  <motion.div
+    animate={{
+      scale: [1, 1.1, 1],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute bottom-[-300px] left-1/2 h-[900px] w-[900px] -translate-x-1/2 rounded-full bg-yellow-500/10 blur-3xl"
+  />
+
+  {/* GOLD LIGHT BEAMS */}
+  <div className="absolute left-[10%] top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-500/30 to-transparent" />
+  <div className="absolute left-[30%] top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-500/20 to-transparent" />
+  <div className="absolute left-[50%] top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-500/20 to-transparent" />
+  <div className="absolute left-[70%] top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-500/20 to-transparent" />
+  <div className="absolute left-[90%] top-0 h-full w-px bg-gradient-to-b from-transparent via-yellow-500/30 to-transparent" />
+
+  {/* HORIZONTAL LIGHTS */}
+  <div className="absolute left-0 top-[20%] h-px w-full bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent" />
+  <div className="absolute left-0 top-[50%] h-px w-full bg-gradient-to-r from-transparent via-yellow-500/10 to-transparent" />
+  <div className="absolute left-0 top-[80%] h-px w-full bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent" />
+
+  {/* FLOATING FRAMES */}
+  {floatingFrames.map((_, i) => (
+    <motion.div
+      key={i}
+      className="absolute border border-yellow-500/25 bg-white/[0.02] backdrop-blur-[1px]"
+      style={{
+        width: i % 3 === 0 ? 180 : i % 3 === 1 ? 120 : 240,
+        height: i % 3 === 0 ? 280 : i % 3 === 1 ? 180 : 140,
+        left: `${(i * 13) % 100}%`,
+        top: `${(i * 19) % 100}%`,
+        borderRadius: i % 2 === 0 ? "8px" : "22px",
+      }}
+      animate={{
+        y: [0, -45, 0],
+        x: [0, i % 2 === 0 ? 30 : -30, 0],
+        opacity: [0.15, 0.45, 0.15],
+        rotate: [0, i % 2 === 0 ? 2 : -2, 0],
+      }}
+      transition={{
+        duration: 12 + i,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <div className="absolute left-1/2 top-0 h-full w-px bg-yellow-500/20" />
+      <div className="absolute left-0 top-1/2 h-px w-full bg-yellow-500/20" />
+    </motion.div>
+  ))}
+
+  {/* HARDWARE GRAPHICS */}
+  {hardwareGraphics.map((item, i) => (
+    <motion.div
+      key={i}
+      className="absolute z-10"
+      style={{ left: item.left, top: item.top }}
+      animate={{
+        y: [0, -40, 0],
+        x: [0, i % 2 === 0 ? 24 : -24, 0],
+        rotate: [0, i % 2 === 0 ? 8 : -8, 0],
+      }}
+      transition={{
+        duration: 8 + i,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <HardwareGraphic type={item.type} size={item.size} />
+    </motion.div>
+  ))}
+
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/35" />
+
+</div>
+
+{/* HERO */}
 <section
   id="quality"
-  className="relative z-30 border-t border-white/10 bg-[#050505]/95 px-6 py-28"
+ className="relative z-30 flex min-h-screen items-center border-t border-white/10 bg-transparent px-6 py-32"
 >
-  <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1fr]">
+<div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1fr]"></div>
 
     {/* LEFT SIDE */}
     <div>
@@ -193,88 +261,56 @@ export default function AboutPage() {
         professional installation support, architectural detail review, perfect material selection,
         custom design, and compatible pricing for luxury projects.
       </p>
-
-      {/* BUTTONS */}
       <div className="mt-12 flex flex-wrap gap-4">
 
-        <a
-          href="/quote"
-          className="border border-yellow-500/70 px-8 py-4 text-sm uppercase tracking-[0.22em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
-        >
-          Request Quote
-        </a>
+  <a
+    href="/quote"
+    className="border border-yellow-500/70 px-8 py-4 text-sm uppercase tracking-[0.22em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
+  >
+    Request Quote
+  </a>
 
-        <a
-          href="/products"
-          className="border border-white/20 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/70 transition hover:border-yellow-500/60 hover:text-yellow-400"
-        >
-          View Products
-        </a>
+  <a
+    href="/products"
+    className="border border-white/20 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/70 transition hover:border-yellow-500/60 hover:text-yellow-400"
+  >
+    View Products
+  </a>
 
-      </div>
+</div>
+{/* ABOUT PAGE LINKS */}
 
-      {/* QUICK NAV */}
-      <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3">
+<div className="absolute left-4 right-4 top-28 z-40 flex flex-wrap gap-3 md:left-10 md:right-auto md:top-1/2 md:-translate-y-1/2 md:flex-col md:gap-6">
 
-        <a
-          href="#quality"
-          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
-        >
-          Quality
-        </a>
+  <Link
+    href="/about/team"
+    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+  >
+    Our Team
+  </Link>
 
-        <a
-          href="#shipping"
-          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
-        >
-          Shipping
-        </a>
+  <Link
+    href="/about/quality"
+    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+  >
+    Quality
+  </Link>
 
-        <a
-          href="#installation"
-          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
-        >
-          Process
-        </a>
+  <Link
+    href="/about/windows"
+    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+  >
+    Window Systems
+  </Link>
 
-      </div>
-    </div>
+  <Link
+    href="/about/doors"
+    className="w-auto md:w-[260px] border border-white/10 bg-black/50 px-8 py-5 text-xs uppercase tracking-[0.28em] text-white/70 backdrop-blur-md transition hover:border-yellow-500/50 hover:text-yellow-400"
+  >
+    Door Systems
+  </Link>
 
-    {/* RIGHT SIDE */}
-    <div className="relative flex min-h-[520px] items-center justify-center">
-
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="relative h-[460px] w-[92%] border-[12px] border-[#171717] bg-[#080808] shadow-[0_40px_140px_rgba(0,0,0,0.9)] md:h-[520px]"
-      >
-
-        <div className="absolute inset-[14px] border border-white/10 bg-gradient-to-br from-white/20 via-white/[0.04] to-transparent" />
-
-        <div className="absolute bottom-0 left-1/3 top-0 w-[4px] bg-[#181818]" />
-        <div className="absolute bottom-0 left-2/3 top-0 w-[4px] bg-[#181818]" />
-        <div className="absolute left-0 right-0 top-1/2 h-[4px] bg-[#181818]" />
-
-        <motion.div
-          animate={{ x: ["-120%", "120%"] }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute inset-y-0 z-10 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-        />
-
-        <div className="absolute -inset-[1px] border border-yellow-500/35" />
-
-      </motion.div>
-
-    </div>
-
+</div>
   </div>
 </section>
 
@@ -302,7 +338,7 @@ export default function AboutPage() {
       </section>
 
       {/* DETAIL GRID */}
-      <section className="relative z-30 border-t border-white/10 bg-black/90 px-6 py-28">
+      <section className="relative z-30 border-t border-white/10 bg-white/[0.02] backdrop-blur-[2px] px-6 py-28">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-500/80">
@@ -330,28 +366,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="relative z-30 border-t border-white/10 bg-[#050505]/95 px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-500/80">
-            Luxora Process
-          </p>
 
-          <h2 className="mb-16 text-2xl font-light uppercase leading-tight tracking-[0.12em] md:text-3xl">
-            Professional steps for a cleaner final result
-          </h2>
-
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-5">
-            {process.map(([num, title, text]) => (
-              <div key={title} className="min-h-[230px] border border-white/10 bg-white/[0.025] p-6 transition hover:border-yellow-500/50">
-                <p className="mb-8 text-sm text-yellow-400">{num}</p>
-                <h3 className="text-sm uppercase tracking-[0.18em] text-white/80">{title}</h3>
-                <p className="mt-6 text-xs leading-7 text-white/50">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

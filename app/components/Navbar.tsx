@@ -31,36 +31,10 @@ export default function Navbar() {
 >
   Products
 </a>
-<div className="group relative">
-  <span className="cursor-pointer transition hover:text-yellow-400">
-    About
-  </span>
 
-  <div className="invisible absolute left-1/2 top-full mt-4 w-[320px] -translate-x-1/2 rounded-2xl border border-yellow-400/20 bg-black/50 p-6 opacity-0 shadow-[0_20px_60px_rgba(0,0,0,0.7)] backdrop-blur-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
-    <div className="space-y-3 text-sm tracking-wide text-neutral-300">
-      <a href="/about" className="block transition hover:text-yellow-400">
-        About Luxora
-      </a>
-
-      <a href="/about/team" className="block transition hover:text-yellow-400">
-        Our Team
-      </a>
-
-      <a href="/about/quality" className="block transition hover:text-yellow-400">
-        Quality & Performance
-      </a>
-
-      <a href="/about/windows" className="block transition hover:text-yellow-400">
-        Window Systems
-      </a>
-
-      <a href="/about/doors" className="block transition hover:text-yellow-400">
-        Door Systems
-      </a>
-    </div>
-  </div>
-</div>
-
+<a href="/about" className="transition hover:text-yellow-400">
+  About
+</a>
           <a
             href="mailto:Luxora.dw@gmail.com"
             className="rounded-xl border border-yellow-400/60 px-5 py-2 text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
