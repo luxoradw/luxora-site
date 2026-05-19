@@ -1,320 +1,230 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import {
-  ChevronRight,
+  ArrowRight,
   ShieldCheck,
-  Wind,
-  Thermometer,
-  Lock,
-  MoveDiagonal,
-  RotateCcw,
-  Gauge,
-  Layers,
   Sparkles,
+  CheckCircle2,
+  RotateCw,
+  Wind,
+  Layers3,
+  SunMedium,
 } from "lucide-react";
 
-const systems = [
+const features = [
   {
-    id: "tilt",
-    title: "Tilt & Turn System",
-    subtitle: "Dual-mode ventilation + full inward opening",
-    icon: RotateCcw,
-    points: [
-      "One handle controls both tilt ventilation and full swing opening.",
-      "Multi-point locking pulls the sash tightly into the frame.",
-      "Concealed hinge system keeps the design clean and modern.",
-      "Excellent for bedrooms, offices, high-end residential spaces.",
-    ],
+    title: "Dual Opening Function",
+    text: "Advanced tilt and turn functionality allows secure ventilation and full inward opening with premium smooth operation.",
+    icon: RotateCw,
   },
   {
-    id: "gas",
-    title: "Gas Strut Window",
-    subtitle: "Assisted lift for heavy glass panels",
-    icon: Gauge,
-    points: [
-      "Gas pump assists the heavy sash during opening.",
-      "Holds the glass panel securely in open position.",
-      "Prevents sudden dropping and improves safety.",
-      "Perfect for kitchen pass-through and outdoor bar windows.",
-    ],
+    title: "Luxury Aluminum Framing",
+    text: "Slim architectural aluminum profiles create elegant modern sightlines with exceptional structural performance.",
+    icon: Layers3,
   },
   {
-    id: "folding",
-    title: "Folding Window System",
-    subtitle: "Wide opening with smooth panel stacking",
-    icon: MoveDiagonal,
-    points: [
-      "Panels fold and stack to one or both sides.",
-      "Precision hinges keep every panel aligned.",
-      "Roller carriers distribute glass weight evenly.",
-      "Creates a clean indoor-outdoor connection.",
-    ],
+    title: "Thermal & Acoustic Comfort",
+    text: "High-performance insulated glazing improves energy efficiency while reducing exterior sound transmission.",
+    icon: SunMedium,
   },
   {
-    id: "crank",
-    title: "Crank Casement System",
-    subtitle: "Controlled opening with compression sealing",
+    title: "Weather Sealing System",
+    text: "Precision-engineered sealing technology protects against wind, water infiltration, and air leakage.",
     icon: Wind,
-    points: [
-      "Gear-driven crank operator opens the sash smoothly.",
-      "Heavy-duty support arms control movement angle.",
-      "Strong compression seal improves air and water resistance.",
-      "Ideal for luxury homes needing tight performance.",
-    ],
   },
 ];
 
-const quality = [
-  {
-    title: "Heavy Glass Support",
-    text: "Reinforced aluminum profiles, high-load hinges, roller carriers, and structural brackets help support double glass, triple glass, and laminated glass panels without sagging.",
-    icon: Layers,
-  },
-  {
-    title: "Multi-Point Locking",
-    text: "Advanced locking points pull the sash evenly into the frame, improving security, air tightness, sound reduction, and weather resistance.",
-    icon: Lock,
-  },
-  {
-    title: "Thermal Break Frame",
-    text: "Interior and exterior aluminum sections are separated by insulated thermal barriers to reduce heat transfer, condensation, and energy loss.",
-    icon: Thermometer,
-  },
-  {
-    title: "Weather Protection",
-    text: "Precision seals, compression hardware, and reinforced frame geometry improve wind resistance, water resistance, and long-term performance.",
-    icon: ShieldCheck,
-  },
-];
-
-function WindowGraphic({ active }: { active: string }) {
+export default function TiltTurnAboutPage() {
   return (
-    <div className="relative h-[430px] w-full overflow-hidden rounded-[2rem] border border-[#d7b46a]/25 bg-black shadow-2xl">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#3a2b13,transparent_45%),linear-gradient(145deg,#050505,#111)]" />
-
-      <div className="absolute left-8 top-8 z-10">
-        <p className="text-xs uppercase tracking-[0.35em] text-[#d7b46a]">
-          Luxora Technical Motion
-        </p>
-        <h2 className="mt-2 text-2xl font-light text-white">
-          Window Operating System
-        </h2>
+    <main className="min-h-screen overflow-hidden bg-black text-white">
+      {/* background */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-yellow-500/10 blur-3xl" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full bg-yellow-500/5 blur-3xl" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-10 mx-auto h-[250px] w-[78%] rounded-xl border-[10px] border-[#d7b46a]/80 bg-[#101010] shadow-[0_0_60px_rgba(215,180,106,0.18)]">
-        <div className="absolute inset-4 border border-white/10 bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm" />
-
-        {active === "tilt" && (
-          <>
-            <div className="absolute left-[28%] top-6 h-[190px] w-[34%] origin-bottom rotate-[-10deg] border-[7px] border-[#d7b46a] bg-white/10 transition-all duration-700" />
-            <div className="absolute right-12 top-24 rounded-full border border-[#d7b46a]/40 px-4 py-2 text-xs text-[#d7b46a]">
-              Tilt ventilation angle
-            </div>
-            <div className="absolute left-10 bottom-6 text-xs text-white/55">
-              Multi-point lock + concealed hinge rotation
-            </div>
-          </>
-        )}
-
-        {active === "gas" && (
-          <>
-            <div className="absolute left-[24%] top-[-15px] h-[175px] w-[52%] origin-bottom rotate-[-32deg] border-[7px] border-[#d7b46a] bg-white/10 transition-all duration-700" />
-            <div className="absolute left-[22%] top-[120px] h-2 w-[260px] rotate-[-28deg] rounded-full bg-[#d7b46a]" />
-            <div className="absolute left-[42%] top-[150px] h-3 w-20 rotate-[-28deg] rounded-full bg-white/50" />
-            <div className="absolute right-10 bottom-7 text-xs text-white/60">
-              Gas pump controls heavy sash movement
-            </div>
-          </>
-        )}
-
-        {active === "folding" && (
-          <>
-            {[0, 1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="absolute top-7 h-[180px] w-[70px] border-[6px] border-[#d7b46a] bg-white/10 transition-all duration-700"
-                style={{
-                  left: `${18 + i * 15}%`,
-                  transform: `rotate(${i % 2 === 0 ? -28 : 28}deg)`,
-                  transformOrigin: i % 2 === 0 ? "left center" : "right center",
-                }}
-              />
-            ))}
-            <div className="absolute bottom-8 left-12 text-xs text-white/60">
-              Hinged panels fold and stack with roller support
-            </div>
-          </>
-        )}
-
-        {active === "crank" && (
-          <>
-            <div className="absolute left-[31%] top-6 h-[185px] w-[36%] origin-left rotate-[-24deg] border-[7px] border-[#d7b46a] bg-white/10 transition-all duration-700" />
-            <div className="absolute left-[44%] top-[145px] h-2 w-[150px] rotate-[-18deg] rounded-full bg-[#d7b46a]" />
-            <div className="absolute left-[52%] top-[175px] h-8 w-8 rounded-full border border-[#d7b46a]" />
-            <div className="absolute right-10 bottom-7 text-xs text-white/60">
-              Crank operator gives controlled opening angle
-            </div>
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default function WindowsSystemPage() {
-  const [active, setActive] = useState("tilt");
-  const activeSystem = systems.find((s) => s.id === active) || systems[0];
-
-  return (
-    <main className="min-h-screen bg-[#050505] text-white">
-      <section className="relative overflow-hidden px-6 pb-20 pt-28 md:px-12">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#3b2a10,transparent_35%)]" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.45em] text-[#d7b46a]">
-              Luxora Windows
-            </p>
-
-            <h1 className="max-w-2xl text-4xl font-light leading-tight md:text-3xl">
-              Engineered Window Systems for Heavy Glass, Smooth Motion, and
-              Luxury Performance.
-            </h1>
-
-            <p className="mt-6 max-w-xl text-sm leading-7 text-white/65">
-              Luxora windows are designed with precision hardware, reinforced
-              aluminum profiles, thermal-break technology, heavy-glass support,
-              gas-assisted motion, multi-point locking, and smooth operating
-              systems for modern architectural projects.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                "Double / triple glass support",
-                "Thermal-break aluminum frame",
-                "Gas strut assisted opening",
-                "Multi-point locking system",
-                "Precision hinges and rollers",
-                "Luxury soft-motion operation",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-xs text-white/75"
-                >
-                  <Sparkles className="h-4 w-4 text-[#d7b46a]" />
-                  {item}
-                </div>
-              ))}
+      {/* hero */}
+      <section className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-32 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 70 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-5xl"
+        >
+          <div className="mb-8 flex justify-center">
+            <div className="rounded-full border border-yellow-500/20 bg-yellow-500/10 px-6 py-2 text-xs uppercase tracking-[0.35em] text-yellow-400">
+              Luxora Premium Systems
             </div>
           </div>
 
-          <WindowGraphic active={active} />
-        </div>
+          <h1 className="text-5xl font-extralight uppercase tracking-[0.16em] md:text-7xl">
+            Tilt Turn Window
+          </h1>
+
+          <div className="mx-auto mt-8 h-px w-32 bg-yellow-500/60" />
+
+          <p className="mx-auto mt-10 max-w-3xl text-sm font-light leading-8 tracking-[0.08em] text-white/60 md:text-base">
+            Luxora Tilt Turn systems combine European engineering, luxury
+            aesthetics, and advanced dual-function performance to create elegant
+            modern architectural living environments.
+          </p>
+
+          <div className="mt-14 flex flex-wrap items-center justify-center gap-5">
+            <Link
+              href="/quote"
+              className="group flex items-center gap-3 rounded-full border border-yellow-500/40 bg-yellow-500 px-8 py-4 text-xs uppercase tracking-[0.25em] text-black transition hover:scale-105"
+            >
+              Request Quote
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </Link>
+
+            <Link
+              href="/products"
+              className="rounded-full border border-white/15 px-8 py-4 text-xs uppercase tracking-[0.25em] text-white/70 transition hover:border-yellow-500/40 hover:text-yellow-400"
+            >
+              Explore Systems
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* graphic */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="relative mt-24 w-full max-w-5xl"
+        >
+          <div className="relative overflow-hidden rounded-[36px] border border-yellow-500/20 bg-white/[0.03] p-8 backdrop-blur-xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent" />
+
+            <div className="relative flex h-[340px] items-center justify-center md:h-[440px]">
+              {/* frame */}
+              <div className="relative h-[85%] w-[45%] rounded-[24px] border border-yellow-500/20 bg-neutral-950 p-3">
+                <div className="relative h-full w-full rounded-[18px] border border-white/10">
+                  {/* moving sash */}
+                  <motion.div
+                    animate={{
+                      rotateY: [0, -18, 0],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                    }}
+                    style={{
+                      transformOrigin: "left",
+                      transformStyle: "preserve-3d",
+                    }}
+                    className="absolute inset-0 rounded-[16px] border border-yellow-500/20 bg-gradient-to-br from-neutral-700 to-neutral-950"
+                  >
+                    <div className="absolute inset-[10px] rounded-[12px] border border-white/10 bg-gradient-to-br from-white/10 to-transparent" />
+                  </motion.div>
+
+                  {/* tilt top */}
+                  <motion.div
+                    animate={{
+                      rotateX: [0, -12, 0],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: 1,
+                    }}
+                    style={{
+                      transformOrigin: "top",
+                    }}
+                    className="absolute inset-x-0 top-0 h-[22%] rounded-t-[16px] border-b border-yellow-500/20 bg-white/5"
+                  />
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Sparkles className="h-12 w-12 text-yellow-400/70" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
-      <section className="px-6 py-10 md:px-12">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-4">
-          {systems.map((system) => {
-            const Icon = system.icon;
-            const selected = active === system.id;
+      {/* features */}
+      <section className="relative mx-auto max-w-7xl px-6 pb-32">
+        <div className="mb-20 text-center">
+          <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
+            Luxury Performance
+          </p>
+
+          <h2 className="mt-6 text-4xl font-extralight uppercase tracking-[0.14em] md:text-5xl">
+            Premium Engineering
+          </h2>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
 
             return (
-              <button
-                key={system.id}
-                onClick={() => setActive(system.id)}
-                className={`rounded-3xl border p-6 text-left transition-all duration-300 ${
-                  selected
-                    ? "border-[#d7b46a] bg-[#d7b46a]/10 shadow-[0_0_35px_rgba(215,180,106,0.16)]"
-                    : "border-white/10 bg-white/[0.03] hover:border-[#d7b46a]/50"
-                }`}
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.12 }}
+                viewport={{ once: true }}
+                className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] p-10 transition hover:border-yellow-500/30 hover:bg-white/[0.05]"
               >
-                <Icon className="mb-5 h-7 w-7 text-[#d7b46a]" />
-                <h3 className="text-lg font-light">{system.title}</h3>
-                <p className="mt-2 text-xs leading-6 text-white/55">
-                  {system.subtitle}
-                </p>
-              </button>
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 transition group-hover:opacity-100" />
+
+                <div className="relative">
+                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10">
+                    <Icon className="h-8 w-8 text-yellow-400" />
+                  </div>
+
+                  <div className="mb-6 h-px w-14 bg-yellow-500/70" />
+
+                  <h3 className="text-lg font-light uppercase tracking-[0.16em]">
+                    {feature.title}
+                  </h3>
+
+                  <p className="mt-6 text-sm leading-8 text-white/55">
+                    {feature.text}
+                  </p>
+                </div>
+              </motion.div>
             );
           })}
         </div>
       </section>
 
-      <section className="px-6 py-16 md:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[2rem] border border-[#d7b46a]/20 bg-white/[0.03] p-8">
-            <p className="text-xs uppercase tracking-[0.35em] text-[#d7b46a]">
-              Selected System
-            </p>
-            <h2 className="mt-4 text-3xl font-light">{activeSystem.title}</h2>
-            <p className="mt-3 text-sm text-white/55">
-              {activeSystem.subtitle}
-            </p>
+      {/* bottom */}
+      <section className="relative border-t border-white/10 py-28">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
+          <ShieldCheck className="h-16 w-16 text-yellow-400" />
 
-            <div className="mt-8 space-y-4">
-              {activeSystem.points.map((point) => (
-                <div key={point} className="flex gap-3 text-sm text-white/70">
-                  <ChevronRight className="mt-1 h-4 w-4 shrink-0 text-[#d7b46a]" />
-                  <p className="leading-7">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <h2 className="mt-10 text-4xl font-extralight uppercase tracking-[0.14em]">
+            European Luxury Engineering
+          </h2>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            {quality.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-[2rem] border border-white/10 bg-[#0b0b0b] p-7"
-                >
-                  <Icon className="mb-5 h-7 w-7 text-[#d7b46a]" />
-                  <h3 className="text-xl font-light">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/60">
-                    {item.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 pb-24 md:px-12">
-        <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-[#d7b46a]/20 bg-gradient-to-br from-[#14110a] to-black p-8 md:p-12">
-          <p className="text-xs uppercase tracking-[0.4em] text-[#d7b46a]">
-            Technical Glass + Frame Performance
+          <p className="mt-8 max-w-3xl text-sm leading-8 tracking-[0.06em] text-white/60">
+            Luxora Tilt Turn systems are engineered using premium-grade
+            aluminum, insulated architectural glazing, German-inspired
+            hardware, and luxury finishes for exceptional modern performance.
           </p>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-3">
-            <div>
-              <h3 className="text-2xl font-light">Insulated Glass Units</h3>
-              <p className="mt-4 text-sm leading-7 text-white/60">
-                Luxora windows can be designed with insulated double glazing,
-                triple glazing, laminated glass, tempered glass, and tinted
-                glass. This improves energy efficiency, sound control, safety,
-                and interior comfort.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-light">Precision Sealing</h3>
-              <p className="mt-4 text-sm leading-7 text-white/60">
-                Compression seals and multi-point locking systems help close the
-                sash tightly against the frame, improving resistance against
-                wind, water, noise, and air leakage.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-light">Long-Term Alignment</h3>
-              <p className="mt-4 text-sm leading-7 text-white/60">
-                Reinforced corners, structural hinges, rollers, and support arms
-                help the window remain aligned over time, even with large-format
-                architectural glass panels.
-              </p>
-            </div>
+          <div className="mt-12 flex flex-wrap justify-center gap-5">
+            {[
+              "German Hardware",
+              "Thermal Break",
+              "Luxury Aluminum",
+              "Premium Glass",
+            ].map((item) => (
+              <div
+                key={item}
+                className="flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-xs uppercase tracking-[0.18em] text-white/70"
+              >
+                <CheckCircle2 className="h-4 w-4 text-yellow-400" />
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </section>
