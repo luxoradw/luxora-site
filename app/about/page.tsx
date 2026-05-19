@@ -296,15 +296,14 @@ className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-ce
     Quality
   </Link>
 
+<Link
+  href="/products/windows"
+  className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
+>
+  Window Systems
+</Link>
   <Link
-    href="/about/windows"
-className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
-  >
-    Window Systems
-  </Link>
-
-  <Link
-    href="/about/doors"
+  href="/products/doors"
 className="rounded-2xl border border-yellow-500/20 bg-black/75 px-4 py-3 text-center text-[10px] uppercase tracking-[0.22em] text-white/70 backdrop-blur-xl transition hover:border-yellow-500/60 hover:text-yellow-400 md:w-[260px] md:px-8 md:py-5 md:text-xs md:tracking-[0.28em]"
   >
     Door Systems
