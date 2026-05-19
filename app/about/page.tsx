@@ -1,193 +1,329 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const reasons = [
-  {
-    title: "Architectural Design",
-    text: "Slim sightlines, modern proportions, and clean aluminum profiles designed for luxury spaces.",
-  },
-  {
-    title: "Thermal Performance",
-    text: "Thermal break systems and insulated glass options help improve comfort and energy efficiency.",
-  },
-  {
-    title: "Custom Manufacturing",
-    text: "Every system can be customized by size, glass type, finish, configuration, and project need.",
-  },
-  {
-    title: "Premium Hardware",
-    text: "Smooth operation, strong locking systems, concealed details, and refined performance.",
-  },
+  ["Architectural Review", "We check sizes, openings, style, proportions, and details to match the project design."],
+  ["Perfect Material", "Premium aluminum profiles, quality glass, strong hardware, and luxury finish options."],
+  ["Custom Design", "Each system can be customized by size, color, glass type, operation, and configuration."],
+  ["Compatible Price", "Luxury quality with smart pricing based on project needs, quantity, and specifications."],
 ];
 
-const performance = [
-  "Thermal Break Aluminum",
+const serviceDetails = [
+  "Safe Shipping & Packaging",
+  "Professional Installation Support",
+  "Architectural Detail Review",
+  "Custom Sizes & Configurations",
+  "Premium Aluminum Material",
+  "Thermal Break Options",
   "Double & Triple Glass",
-  "Low-E Glass Options",
-  "Air Tightness",
-  "Water Resistance",
-  "Sound Performance",
-  "Wind Load Resistance",
-  "Custom Colors",
-  "Large Openings",
-  "Slim Sightlines",
   "European Hardware",
-  "Luxury Finishes",
+  "Luxury Color Finishes",
+  "Water & Air Performance",
+  "Sound Reduction Options",
+  "Compatible Project Pricing",
 ];
 
 const process = [
-  "Consultation",
-  "Product Selection",
-  "Custom Sizing",
-  "Engineering Review",
-  "Manufacturing",
-  "Delivery Support",
+  ["01", "Review", "We review architectural plans, openings, sizes, elevations, and product needs."],
+  ["02", "Design", "We help select the best door and window system for function, beauty, and budget."],
+  ["03", "Customize", "Every product is prepared based on exact size, glass, color, hardware, and operation."],
+  ["04", "Ship Safely", "Products are protected with professional packaging to reduce damage during delivery."],
+  ["05", "Install Support", "We coordinate details for smooth installation and professional final results."],
 ];
+
+const floatingFrames = Array.from({ length: 18 });
+
+const hardwareGraphics = [
+  { type: "handle", left: "5%", top: "13%", size: "lg" },
+  { type: "piston", left: "72%", top: "16%", size: "lg" },
+  { type: "hinge", left: "10%", top: "64%", size: "md" },
+  { type: "lock", left: "80%", top: "62%", size: "md" },
+  { type: "profile", left: "40%", top: "8%", size: "lg" },
+  { type: "roller", left: "52%", top: "75%", size: "md" },
+  { type: "corner", left: "24%", top: "42%", size: "md" },
+  { type: "glass", left: "63%", top: "44%", size: "lg" },
+];
+
+function HardwareGraphic({ type, size }: { type: string; size: string }) {
+  const box = size === "lg" ? "h-52 w-52" : "h-40 w-40";
+
+  return (
+    <div className={`relative ${box} opacity-80`}>
+      {type === "handle" && (
+        <>
+          <div className="absolute left-16 top-6 h-36 w-7 rounded-full border-2 border-yellow-400/80 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-20 top-20 h-6 w-32 rounded-full border-2 border-yellow-400/80 bg-yellow-500/10" />
+          <div className="absolute left-[88px] top-[105px] h-8 w-8 rounded-full bg-yellow-400/40" />
+        </>
+      )}
+
+      {type === "piston" && (
+        <>
+          <div className="absolute left-2 top-24 h-5 w-44 rotate-[-24deg] rounded-full border-2 border-yellow-400/80 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-20 top-[78px] h-8 w-20 rotate-[-24deg] rounded-full bg-yellow-500/25" />
+          <div className="absolute left-0 top-[82px] h-9 w-9 rounded-full border-2 border-yellow-400/80" />
+          <div className="absolute right-0 top-[40px] h-9 w-9 rounded-full border-2 border-yellow-400/80" />
+        </>
+      )}
+
+      {type === "hinge" && (
+        <div className="absolute left-12 top-5 h-32 w-20 rounded-2xl border-2 border-yellow-400/80 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]">
+          <div className="absolute left-1/2 top-0 h-full w-px bg-yellow-400/70" />
+          {[24, 60, 96].map((t) => (
+            <div key={t} style={{ top: t }} className="absolute left-8 h-4 w-4 rounded-full bg-yellow-400/50" />
+          ))}
+        </div>
+      )}
+
+      {type === "lock" && (
+        <>
+          <div className="absolute left-12 top-8 h-28 w-20 rounded-xl border-2 border-yellow-400/80 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-[78px] top-[74px] h-7 w-7 rounded-full bg-yellow-400/50" />
+          <div className="absolute left-[91px] top-[100px] h-12 w-px bg-yellow-400/80" />
+        </>
+      )}
+
+      {type === "profile" && (
+        <>
+          <div className="absolute left-6 top-14 h-24 w-36 border-[9px] border-yellow-400/70 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-16 top-[88px] h-10 w-20 border-2 border-yellow-400/50" />
+          <div className="absolute left-[104px] top-14 h-24 w-px bg-yellow-400/50" />
+        </>
+      )}
+
+      {type === "roller" && (
+        <>
+          <div className="absolute left-8 top-16 h-20 w-32 rounded-full border-2 border-yellow-400/80 bg-yellow-500/10 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-16 top-20 h-12 w-12 rounded-full border-2 border-yellow-400/80" />
+          <div className="absolute left-24 top-20 h-12 w-12 rounded-full border-2 border-yellow-400/80" />
+        </>
+      )}
+
+      {type === "corner" && (
+        <>
+          <div className="absolute left-8 top-8 h-28 w-28 border-l-[10px] border-t-[10px] border-yellow-400/70 shadow-[0_0_35px_rgba(234,179,8,0.35)]" />
+          <div className="absolute left-16 top-16 h-20 w-20 border-l-2 border-t-2 border-yellow-400/50" />
+        </>
+      )}
+
+      {type === "glass" && (
+        <>
+          <div className="absolute left-8 top-8 h-36 w-28 skew-x-[-8deg] border-2 border-yellow-400/60 bg-white/[0.04] shadow-[0_0_35px_rgba(234,179,8,0.25)]" />
+          <div className="absolute left-16 top-10 h-32 w-2 skew-x-[-8deg] bg-white/20" />
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center px-6 pt-28 pb-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(234,179,8,0.16),transparent_35%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.3),black)]" />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      {/* BACKGROUND */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.18),transparent_48%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-center">
-          <div>
-            <p className="text-yellow-500/80 text-xs tracking-[0.45em] uppercase mb-6">
-              About Luxora
-            </p>
+        {hardwareGraphics.map((item, i) => (
+          <motion.div
+            key={i}
+            className="absolute z-10"
+            style={{ left: item.left, top: item.top }}
+            animate={{
+              y: [0, -36, 0],
+              x: [0, i % 2 === 0 ? 24 : -24, 0],
+              rotate: [0, i % 2 === 0 ? 6 : -6, 0],
+            }}
+            transition={{ duration: 8 + i, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <HardwareGraphic type={item.type} size={item.size} />
+          </motion.div>
+        ))}
 
-            <h1 className="text-2xl md:text-4xl xl:text-3xl font-light tracking-[0.12em] uppercase leading-[0.95]">
-              Luxury
-              <br />
-              Openings
-              <br />
-              Without
-              <br />
-              Compromise
-            </h1>
+        {floatingFrames.map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute border border-yellow-500/35 bg-white/[0.025]"
+            style={{
+              width: i % 3 === 0 ? 160 : i % 3 === 1 ? 110 : 210,
+              height: i % 3 === 0 ? 260 : i % 3 === 1 ? 170 : 130,
+              left: `${(i * 13) % 100}%`,
+              top: `${(i * 19) % 100}%`,
+              borderRadius: i % 2 === 0 ? "6px" : "18px",
+            }}
+            animate={{
+              y: [0, -34, 0],
+              x: [0, i % 2 === 0 ? 22 : -22, 0],
+              opacity: [0.18, 0.42, 0.18],
+            }}
+            transition={{ duration: 10 + i, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="absolute left-1/2 top-0 h-full w-px bg-yellow-500/35" />
+            <div className="absolute left-0 top-1/2 h-px w-full bg-yellow-500/35" />
+          </motion.div>
+        ))}
 
-            <div className="mt-10 h-[1px] w-32 bg-yellow-500/70" />
+        <div className="absolute inset-0 z-20 bg-black/40" />
+      </div>
 
-            <p className="mt-10 max-w-2xl text-white/60 text-sm md:text-base leading-9">
-              Luxora Doors & Windows specializes in premium aluminum door and
-              window systems for luxury residential and commercial projects. Our
-              systems combine modern architectural design, thermal performance,
-              precision hardware, and custom manufacturing.
-            </p>
+ {/* HERO */}
+<section
+  id="quality"
+  className="relative z-30 border-t border-white/10 bg-[#050505]/95 px-6 py-28"
+>
+  <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1fr]">
 
-            <div className="mt-12 flex flex-wrap gap-4">
-              <a
-                href="/quote"
-                className="border border-yellow-500/70 px-8 py-4 text-sm tracking-[0.22em] uppercase text-yellow-400 hover:bg-yellow-500 hover:text-black transition"
-              >
-                Request Quote
-              </a>
+    {/* LEFT SIDE */}
+    <div>
+      <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
+        About Luxora
+      </p>
 
-              <a
-                href="/windows/fixed"
-                className="border border-white/15 px-8 py-4 text-sm tracking-[0.22em] uppercase text-white/70 hover:border-yellow-500/60 hover:text-yellow-400 transition"
-              >
-                
-              </a>
-            </div>
-          </div>
+      <h1 className="text-3xl font-light uppercase leading-[1.05] tracking-[0.12em] md:text-5xl">
+        Luxury Openings
+        <br />
+        Designed With Precision
+      </h1>
 
-          {/* Main Graphic */}
-          <div className="relative h-[620px] flex items-center justify-center">
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-[92%] h-[520px] border-[12px] border-[#171717] bg-[#080808] shadow-[0_40px_140px_rgba(0,0,0,0.9)]"
-            >
-              <div className="absolute inset-[14px] border border-white/10 bg-gradient-to-br from-white/20 via-white/[0.04] to-transparent" />
+      <div className="mt-10 h-px w-32 bg-yellow-500/70" />
 
-              <div className="absolute left-1/3 top-0 bottom-0 w-[4px] bg-[#181818]" />
-              <div className="absolute left-2/3 top-0 bottom-0 w-[4px] bg-[#181818]" />
-              <div className="absolute top-1/2 left-0 right-0 h-[4px] bg-[#181818]" />
+      <p className="mt-10 max-w-2xl text-sm leading-8 text-white/70 md:text-base">
+        Luxora Doors & Windows provides premium aluminum systems with a focus on safe shipping,
+        professional installation support, architectural detail review, perfect material selection,
+        custom design, and compatible pricing for luxury projects.
+      </p>
 
-              <motion.div
-                animate={{ x: ["-120%", "120%"] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-y-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-              />
+      {/* BUTTONS */}
+      <div className="mt-12 flex flex-wrap gap-4">
 
-              <div className="absolute -inset-[1px] border border-yellow-500/25" />
-              <div className="absolute top-[-12px] left-[-12px] right-[-12px] h-[5px] bg-yellow-500/40" />
-              <div className="absolute bottom-[-12px] left-[-12px] right-[-12px] h-[5px] bg-yellow-500/20" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        <a
+          href="/quote"
+          className="border border-yellow-500/70 px-8 py-4 text-sm uppercase tracking-[0.22em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
+        >
+          Request Quote
+        </a>
 
-      {/* WHY LUXORA */}
-      <section className="px-6 py-28 border-t border-white/10 bg-[#050505]">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-yellow-500/80 text-l tracking-[0.4em] uppercase mb-5">
+        <a
+          href="/products"
+          className="border border-white/20 px-8 py-4 text-sm uppercase tracking-[0.22em] text-white/70 transition hover:border-yellow-500/60 hover:text-yellow-400"
+        >
+          View Products
+        </a>
+
+      </div>
+
+      {/* QUICK NAV */}
+      <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3">
+
+        <a
+          href="#quality"
+          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
+        >
+          Quality
+        </a>
+
+        <a
+          href="#shipping"
+          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
+        >
+          Shipping
+        </a>
+
+        <a
+          href="#installation"
+          className="border border-yellow-500/30 bg-white/[0.03] px-4 py-4 text-center text-[10px] uppercase tracking-[0.18em] text-white/70 transition hover:border-yellow-500/70 hover:bg-yellow-500/[0.08] hover:text-yellow-400"
+        >
+          Process
+        </a>
+
+      </div>
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="relative flex min-h-[520px] items-center justify-center">
+
+      <motion.div
+        animate={{ y: [0, -12, 0] }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="relative h-[460px] w-[92%] border-[12px] border-[#171717] bg-[#080808] shadow-[0_40px_140px_rgba(0,0,0,0.9)] md:h-[520px]"
+      >
+
+        <div className="absolute inset-[14px] border border-white/10 bg-gradient-to-br from-white/20 via-white/[0.04] to-transparent" />
+
+        <div className="absolute bottom-0 left-1/3 top-0 w-[4px] bg-[#181818]" />
+        <div className="absolute bottom-0 left-2/3 top-0 w-[4px] bg-[#181818]" />
+        <div className="absolute left-0 right-0 top-1/2 h-[4px] bg-[#181818]" />
+
+        <motion.div
+          animate={{ x: ["-120%", "120%"] }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute inset-y-0 z-10 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        />
+
+        <div className="absolute -inset-[1px] border border-yellow-500/35" />
+
+      </motion.div>
+
+    </div>
+
+  </div>
+</section>
+
+      {/* WHY */}
+      <section className="relative z-30 border-t border-white/10 bg-[#050505]/95 px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-500/80">
             Why Choose Luxora
           </p>
 
-          <h2 className="text-2xl md:text-2xl font-light tracking-[0.12em] uppercase leading-tight max-w-5xl mb-16">
-            Designed to make every project feel more valuable
+          <h2 className="mb-16 max-w-5xl text-2xl font-light uppercase leading-tight tracking-[0.12em]">
+            Every detail is reviewed before your product is manufactured
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {reasons.map((item) => (
-              <div
-                key={item.title}
-                className="border border-white/10 bg-white/[0.025] p-8 hover:border-yellow-500/50 transition"
-              >
-                <div className="w-14 h-[1px] bg-yellow-500/70 mb-6" />
-
-                <h3 className="text-xl font-light tracking-[0.16em] uppercase">
-                  {item.title}
-                </h3>
-
-                <p className="mt-6 text-sm leading-8 text-white/55">
-                  {item.text}
-                </p>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {reasons.map(([title, text]) => (
+              <div key={title} className="border border-white/10 bg-white/[0.025] p-8 transition hover:border-yellow-500/50">
+                <div className="mb-6 h-px w-14 bg-yellow-500/70" />
+                <h3 className="text-xl font-light uppercase tracking-[0.16em]">{title}</h3>
+                <p className="mt-6 text-sm leading-8 text-white/55">{text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PERFORMANCE GRAPHIC */}
-      <section className="relative px-6 py-32 border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.10),transparent_40%)]" />
-
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
+      {/* DETAIL GRID */}
+      <section className="relative z-30 border-t border-white/10 bg-black/90 px-6 py-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-yellow-500/80 text-l tracking-[0.4em] uppercase mb-5">
-              Performance Matters
+            <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-500/80">
+              Complete Project Support
             </p>
 
-            <h2 className="text-4xl md:text-2xl font-light tracking-[0.12em] uppercase leading-tight">
-              Beauty must perform over time
+            <h2 className="text-2xl font-light uppercase leading-tight tracking-[0.12em] md:text-3xl">
+              From architectural review to safe delivery
             </h2>
 
-            <p className="mt-8 text-white/55 text-sm leading-9 max-w-xl">
-              Luxora systems are selected for customers who care about more than
-              appearance. Performance, comfort, durability, and smooth operation
-              are part of the luxury experience.
+            <p className="mt-8 text-sm leading-9 text-white/55">
+              We help customers choose the correct system before ordering. Our process focuses on
+              safety, beauty, performance, installation needs, and price compatibility.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {performance.map((item) => (
-              <div
-                key={item}
-                className="border border-white/10 bg-white/[0.025] px-6 py-5 flex items-center gap-4 hover:border-yellow-500/40 transition"
-              >
-                <div className="w-8 h-8 rounded-full border border-yellow-500/40 flex items-center justify-center shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                </div>
-
-                <p className="text-sm tracking-[0.08em] uppercase text-white/65">
-                  {item}
-                </p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {serviceDetails.map((item) => (
+              <div key={item} className="flex items-center gap-4 border border-white/10 bg-white/[0.025] px-6 py-5 transition hover:border-yellow-500/50">
+                <div className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_15px_rgba(234,179,8,0.8)]" />
+                <p className="text-sm uppercase tracking-[0.1em] text-white/65">{item}</p>
               </div>
             ))}
           </div>
@@ -195,60 +331,25 @@ export default function AboutPage() {
       </section>
 
       {/* PROCESS */}
-      <section className="px-6 py-28 border-t border-white/10 bg-[#060606]">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-yellow-500/80 text-l tracking-[0.4em] uppercase mb-5">
+      <section className="relative z-30 border-t border-white/10 bg-[#050505]/95 px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-500/80">
             Luxora Process
           </p>
 
-          <h2 className="text-4xl md:text-3xl font-light tracking-[0.12em] uppercase leading-tight mb-16">
-            From concept to custom system
+          <h2 className="mb-16 text-2xl font-light uppercase leading-tight tracking-[0.12em] md:text-3xl">
+            Professional steps for a cleaner final result
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-4">
-            {process.map((item, index) => (
-              <div
-                key={item}
-                className="relative border border-white/10 bg-white/[0.025] p-6 min-h-[180px]"
-              >
-                <p className="text-yellow-400 text-sm mb-8">
-                  0{index + 1}
-                </p>
-
-                <h3 className="text-sm tracking-[0.18em] uppercase text-white/70">
-                  {item}
-                </h3>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-5">
+            {process.map(([num, title, text]) => (
+              <div key={title} className="min-h-[230px] border border-white/10 bg-white/[0.025] p-6 transition hover:border-yellow-500/50">
+                <p className="mb-8 text-sm text-yellow-400">{num}</p>
+                <h3 className="text-sm uppercase tracking-[0.18em] text-white/80">{title}</h3>
+                <p className="mt-6 text-xs leading-7 text-white/50">{text}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="px-6 py-36 border-t border-yellow-500/20 text-center bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.12),transparent_45%)]">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-yellow-500/80 text-xl tracking-[0.4em] uppercase mb-6">
-            Start With Luxora
-          </p>
-
-          <h2 className="text-2xl md:text-2xl font-light tracking-[0.12em] uppercase leading-[1.05]">
-            More than doors and windows.
-            <br />
-            Architectural experiences.
-          </h2>
-
-          <p className="mt-10 max-w-3xl mx-auto text-white/55 text-sm md:text-base leading-9">
-            Whether you are building a custom home, remodeling a luxury
-            residence, or designing a commercial project, Luxora helps elevate
-            the space with premium aluminum systems.
-          </p>
-
-          <a
-            href="/quote"
-            className="inline-block mt-12 border border-yellow-500/70 px-10 py-5 text-sm tracking-[0.22em] uppercase text-yellow-400 hover:bg-yellow-500 hover:text-black transition"
-          >
-            Request Your Quote
-          </a>
         </div>
       </section>
     </main>

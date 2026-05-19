@@ -31,11 +31,11 @@ export default function FixedWindowPage() {
         {/* Header */}
         <div className="mb-12">
           <p className="text-yellow-500/80 text-xs tracking-[0.35em] uppercase mb-4">
-            Series Fixed Window System
+            Luxora Doors and Windowes 
           </p>
 
           <h1 className="text-3xl md:text-5xl font-light tracking-[0.14em] uppercase">
-            Fixed Window
+            Fixed Windows
           </h1>
 
           <p className="mt-5 max-w-3xl text-white/55 text-sm leading-7">
