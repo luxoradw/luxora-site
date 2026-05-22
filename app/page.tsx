@@ -209,65 +209,150 @@ export default function HomePage() {
             Designed for Luxury Spaces
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-3">
+<div className="grid gap-6 md:grid-cols-3">
 
-            {[
-              {
-                title: " Doors Systems",
-                image: "/sliding-door.png",
-                text: "Minimal aluminum Doors systems designed for expansive openings and luxury architectural living.",
-              },
-              {
-                title: "Luxury Windows",
-                image: "/luxury-window.png",
-                text: "Refined window systems balancing minimal aesthetics, performance, and natural light.",
-              },
-              {
-                title: "Custom Systems",
-                image: "/custom-system.png",
-                text: "Tailored architectural systems crafted for modern luxury projects and custom applications.",
-              },
-            ].map((item) => (
+  {[
+    {
+      title: "Door Systems",
+      href: "/products/doors",
+      image: "/sliding-door.png",
+      text: "Minimal aluminum Doors systems designed for expansive openings and luxury architectural living.",
+    },
+    {
+      title: "Luxury Windows",
+      href: "/products/windows",
+      image: "/luxury-window.png",
+      text: "Refined window systems balancing minimal aesthetics, performance, and natural light.",
+    },
+    {
+      title: "Custom Systems",
+      href: "/about/quality",
+      image: "/custom-system.png",
+      text: "Tailored architectural systems crafted for modern luxury projects and custom applications.",
+    },
+  ].map((item) => (
 
-              <motion.div
-                key={item.title}
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-                className="group overflow-hidden rounded-3xl border border-yellow-400/20 bg-white/[0.03] backdrop-blur-md hover:border-yellow-400/60"
-              >
+    <Link key={item.title} href={item.href}>
 
-                {/* Image */}
-                <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-950 to-black">
+      <motion.div
+        whileHover={{ y: -10, scale: 1.02 }}
+        transition={{ duration: 0.4 }}
+        className="group overflow-hidden rounded-3xl border border-yellow-400/20 bg-white/[0.03] backdrop-blur-md hover:border-yellow-400/60"
+      >
 
-                  <div className="absolute h-44 w-44 rounded-full bg-yellow-400/10 blur-3xl transition duration-700 group-hover:scale-150" />
+        {/* Image */}
+        <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-950 to-black">
 
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="relative z-10 h-[260px] object-contain transition duration-700 group-hover:scale-110"
-                  />
+          <div className="absolute h-44 w-44 rounded-full bg-yellow-400/10 blur-3xl transition duration-700 group-hover:scale-150" />
 
-                </div>
+          <img
+            src={item.image}
+            alt={item.title}
+            className="relative z-10 h-[260px] object-contain transition duration-700 group-hover:scale-110"
+          />
 
-                {/* Text */}
-                <div className="p-8">
+        </div>
 
-                  <h3 className="mb-4 font-serif text-3xl text-white">
-                    {item.title}
-                  </h3>
+        {/* Text */}
+        <div className="p-8">
 
-                  <p className="leading-7 text-neutral-400">
-                    {item.text}
-                  </p>
+          <h3 className="mb-4 font-serif text-3xl text-white">
+            {item.title}
+          </h3>
 
-                </div>
+          <p className="leading-7 text-neutral-400">
+            {item.text}
+          </p>
 
-              </motion.div>
+        </div>
 
-            ))}
+      </motion.div>
 
-          </div>
+    </Link>
 
+  ))}
+
+</div>
+{/* Our Team Section */}
+<section className="relative z-10 px-6 py-28">
+
+  <motion.div
+    className="mx-auto max-w-7xl"
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+  >
+
+    <p className="mb-4 text-center text-xs uppercase tracking-[0.4em] text-yellow-400">
+      Our Team
+    </p>
+
+    <h2 className="mb-14 text-center font-serif text-4xl md:text-6xl">
+      Crafted By Experts
+    </h2>
+
+    <div className="grid gap-6 md:grid-cols-3">
+
+      {[
+        {
+
+  name: "Design Team",
+  href: "/about/design-team",
+  text: "Luxury architectural designers creating refined modern systems with premium detailing.",
+},
+{
+  name: "Management",
+  href: "/about/team",
+  text: "Professional leadership focused on quality control, client experience, and luxury project execution.",
+},
+{
+  name: "Installation",
+  href: "/about/installation",
+  text: "Professional installation specialists delivering flawless execution for luxury projects.",
+},
+      ].map((member) => (
+
+<Link
+  key={member.name}
+  href={member.href}
+>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ duration: 0.4 }}
+            className="group flex min-h-[260px] flex-col justify-between rounded-3xl border border-yellow-400/20 bg-white/[0.03] p-10 backdrop-blur-md transition hover:border-yellow-400/60"
+          >
+
+            <div>
+
+              <div className="mb-6 h-px w-16 bg-yellow-400/70 transition duration-500 group-hover:w-28" />
+
+              <h3 className="mb-6 font-serif text-3xl text-white">
+                {member.name}
+              </h3>
+
+              <p className="leading-8 text-neutral-400">
+                {member.text}
+              </p>
+
+            </div>
+
+            <p className="mt-10 text-xs uppercase tracking-[0.3em] text-yellow-400">
+              View Team →
+            </p>
+
+          </motion.div>
+
+        </Link>
+
+      ))}
+
+    </div>
+
+  </motion.div>
+
+</section>
         </motion.div>
 
       </section>
