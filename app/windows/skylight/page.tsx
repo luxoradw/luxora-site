@@ -1,173 +1,227 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+type SkylightMode = "fixed" | "vented" | "open";
+
+const features = [
+  "Roof Window Design",
+  "Natural Light",
+  "Thermal Break Frame",
+  "Fixed / Vented Option",
+  "Double Glass",
+  "Water Tightness",
+  "UV Protection",
+  "Custom Finish",
+];
+
 export default function SkylightWindowPage() {
+  const [mode, setMode] = useState<SkylightMode>("open");
+
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
-
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.16),transparent_55%)]" />
-      </div>
-
-      {/* HERO */}
-      <section className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-20 px-6 py-32 lg:grid-cols-2">
-
-        {/* LEFT */}
-        <div>
-          <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Window Collection
+    <main className="min-h-screen bg-[#050505] px-6 py-20 text-white">
+      <section className="mx-auto max-w-7xl">
+        <div className="mb-12">
+          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-500/80">
+            Luxora Window Systems
           </p>
 
-          <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Skylight
-            <br />
-            Window System
+          <h1 className="text-3xl font-light uppercase tracking-[0.14em] md:text-5xl">
+            Skylight Window
           </h1>
 
-          <div className="mt-8 h-px w-24 bg-yellow-500/70" />
-
-          <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Skylight window system designed to bring natural daylight from
-            above with clean architectural framing, insulated glass, and luxury
-            aluminum construction for modern residential and commercial spaces.
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/55">
+            Premium skylight windows designed to bring natural light from above,
+            with strong insulation, clean aluminum detailing, water-tight
+            performance, and refined architectural style.
           </p>
-
-          {/* FEATURES */}
-          <div className="mt-14 grid grid-cols-2 gap-4">
-            {[
-              "Natural Daylight",
-              "Roof Integration",
-              "Insulated Glass",
-              "Modern Aluminum Frame",
-              "Custom Sizes",
-              "Luxury Architectural Design",
-            ].map((item) => (
-              <div
-                key={item}
-                className="border border-white/10 bg-white/[0.03] px-5 py-4 text-xs uppercase tracking-[0.18em] text-white/70"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* RIGHT GRAPHIC */}
-        <div className="relative flex items-center justify-center">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.4fr_0.9fr]">
+          <div className="border border-white/10 bg-white/[0.025] p-6 md:p-10">
+            <div className="mb-6 flex flex-wrap gap-3">
+              {[
+                ["fixed", "Fixed"],
+                ["vented", "Vented"],
+                ["open", "Open View"],
+              ].map(([value, label]) => (
+                <button
+                  key={value}
+                  onClick={() => setMode(value as SkylightMode)}
+                  className={`border px-5 py-2 text-xs uppercase tracking-[0.22em] transition-all duration-300 ${
+                    mode === value
+                      ? "border-yellow-500 bg-yellow-500/10 text-yellow-400"
+                      : "border-white/15 text-white/55 hover:border-yellow-500/50 hover:text-yellow-400"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
 
-          {/* ROOF FRAME */}
-          <div className="relative h-[420px] w-[520px]">
+            <SkylightVisual mode={mode} />
 
-            {/* ROOF */}
-            <div className="absolute left-[10%] top-[30%] h-[2px] w-[80%] rotate-[-18deg] bg-yellow-500/30" />
-
-            {/* SKYLIGHT */}
-            <motion.div
-              animate={{
-                rotate: [-18, -14, -18],
-                y: [0, -8, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[24%] top-[24%] h-[220px] w-[220px] rotate-[-18deg] border border-yellow-400/80 bg-white/[0.05]"
-            >
-              <div className="absolute inset-4 border border-yellow-500/20" />
-
-              {/* GLASS REFLECTION */}
-              <motion.div
-                animate={{
-                  x: ["-120%", "140%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              />
-            </motion.div>
-
-            {/* LIGHT GLOW */}
-            <motion.div
-              animate={{
-                opacity: [0.25, 0.55, 0.25],
-                scale: [1, 1.08, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[28%] top-[34%] h-[180px] w-[180px] rounded-full bg-yellow-500/20 blur-3xl"
-            />
+            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+              {[
+                ["Frame", "6066-T6 Aluminum"],
+                ["Glass", "Double / Low-E"],
+                ["Motion", "Fixed / Vented"],
+                ["Finish", "RAL / Anodized"],
+              ].map(([label, value]) => (
+                <div key={label} className="border border-white/10 p-4">
+                  <p className="text-xs uppercase tracking-widest text-yellow-400">
+                    {label}
+                  </p>
+                  <p className="mt-2 text-sm text-white/55">{value}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* LABELS */}
-          <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Natural Light
-            </p>
-          </div>
-
-          <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Roof System
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* DETAILS */}
-      <section className="relative z-10 border-t border-white/10 bg-white/[0.02] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-14 flex items-center gap-5">
-            <div className="h-px w-16 bg-yellow-500/70" />
-
-            <h2 className="text-sm uppercase tracking-[0.32em] text-yellow-400">
-              System Details
+          <div className="border border-white/10 bg-white/[0.025] p-6 md:p-8">
+            <h2 className="mb-8 text-xl font-light uppercase tracking-[0.18em]">
+              Performance & Specifications
             </h2>
+
+            <div className="space-y-7">
+              <InfoBlock
+                title="Glass Performance"
+                rows={[
+                  ["Glass Type", "Double / Low-E"],
+                  ["Insulation", "Thermal Break"],
+                  ["Water Tightness", "High Performance"],
+                  ["UV Control", "Available"],
+                  ["Sound Control", "Insulated Glass"],
+                ]}
+              />
+
+              <InfoBlock
+                title="Specifications"
+                rows={[
+                  ["Frame", "6066-T6 Aluminum"],
+                  ["Glass", "Tempered / Double"],
+                  ["Opening", "Fixed / Vented"],
+                  ["Application", "Roof / Ceiling"],
+                  ["Finish", "RAL / Anodized"],
+                ]}
+              />
+
+              <InfoBlock
+                title="System"
+                rows={[
+                  ["Design", "Skylight Window"],
+                  ["Use", "Residential / Commercial"],
+                  ["Drainage", "Integrated Channel"],
+                  ["Hardware", "Premium System"],
+                ]}
+              />
+            </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {[
-              [
-                "Lighting",
-                "Designed to maximize natural daylight while maintaining modern thermal performance.",
-              ],
-              [
-                "Application",
-                "Ideal for luxury homes, stairwells, living spaces, commercial interiors, and architectural features.",
-              ],
-              [
-                "Design",
-                "Minimal aluminum framing with insulated glazing and refined architectural appearance.",
-              ],
-            ].map(([title, text]) => (
-              <div
-                key={title}
-                className="border border-white/10 bg-black/40 p-8"
-              >
-                <div className="mb-6 h-px w-14 bg-yellow-500/70" />
-
-                <h3 className="text-lg font-light uppercase tracking-[0.16em]">
-                  {title}
-                </h3>
-
-                <p className="mt-6 text-sm leading-8 text-white/55">
-                  {text}
-                </p>
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {features.map((feature) => (
+            <div
+              key={feature}
+              className="border border-white/10 bg-white/[0.025] px-5 py-5 text-center transition-all duration-300 hover:border-yellow-500/40"
+            >
+              <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full border border-yellow-500/40">
+                <div className="h-2 w-2 rounded-full bg-yellow-400" />
               </div>
-            ))}
-          </div>
+
+              <p className="text-xs uppercase tracking-[0.18em] text-white/65">
+                {feature}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </main>
+  );
+}
+
+function SkylightVisual({ mode }: { mode: SkylightMode }) {
+  const isOpen = mode === "open";
+  const isVented = mode === "vented";
+
+  return (
+    <div className="relative flex h-[460px] items-center justify-center overflow-hidden bg-gradient-to-b from-white/[0.04] to-black">
+      <div className="relative h-[300px] w-[78%] perspective-[1000px]">
+        <div className="absolute inset-0 rotate-x-[58deg] border-[12px] border-[#1b1b1b] bg-[#0b0b0b] shadow-2xl">
+          <div className="absolute left-[-12px] right-[-12px] top-[-12px] h-[5px] bg-yellow-500/30" />
+          <div className="absolute bottom-[-12px] left-[-12px] right-[-12px] h-[5px] bg-yellow-500/20" />
+
+          <div className="absolute inset-[18px] border border-white/10">
+            <motion.div
+              animate={{
+                rotateX: isOpen ? -42 : isVented ? -18 : 0,
+                y: isOpen ? -34 : isVented ? -12 : 0,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 70,
+                damping: 18,
+              }}
+              className="absolute inset-0 border-[7px] border-[#2a2a2a] bg-[#111] shadow-[0_24px_50px_rgba(0,0,0,.65)]"
+              style={{
+                transformStyle: "preserve-3d",
+                transformOrigin: "top center",
+              }}
+            >
+              <div className="absolute inset-[10px] border border-white/10 bg-gradient-to-br from-white/20 via-white/[0.05] to-transparent">
+                <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.16),transparent)]" />
+              </div>
+
+              <div className="absolute left-1/2 bottom-6 h-2 w-16 -translate-x-1/2 rounded-full bg-yellow-500/45" />
+            </motion.div>
+
+            {(isOpen || isVented) && (
+              <>
+                <motion.div
+                  animate={{ height: isOpen ? 110 : 70 }}
+                  transition={{ type: "spring", stiffness: 70, damping: 18 }}
+                  className="absolute left-10 top-12 w-[3px] origin-top rotate-[24deg] rounded-full bg-yellow-500/55"
+                />
+
+                <motion.div
+                  animate={{ height: isOpen ? 110 : 70 }}
+                  transition={{ type: "spring", stiffness: 70, damping: 18 }}
+                  className="absolute right-10 top-12 w-[3px] origin-top -rotate-[24deg] rounded-full bg-yellow-500/55"
+                />
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InfoBlock({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: string[][];
+}) {
+  return (
+    <div>
+      <h3 className="bg-white/10 py-3 text-center text-sm uppercase tracking-[0.18em]">
+        {title}
+      </h3>
+
+      <div className="text-sm text-white/60">
+        {rows.map(([label, value]) => (
+          <div
+            key={label}
+            className="flex justify-between gap-5 border-b border-white/10 py-2"
+          >
+            <span>{label}</span>
+            <span className="text-right">{value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

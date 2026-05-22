@@ -2,156 +2,219 @@
 
 import { motion } from "framer-motion";
 
+const features = [
+  "Full Glass Facade",
+  "Commercial System",
+  "Thermal Break Aluminum",
+  "Structural Glazing",
+  "Panoramic Elevation",
+  "Custom Engineering",
+  "Water Tightness",
+  "Wind Load Resistance",
+];
+
 export default function CurtainWallPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
+      <section className="relative min-h-screen overflow-hidden bg-black">
+        <img
+          src="/curtain-wall-hero.png"
+          alt="Curtain Wall System"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
+        />
 
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.16),transparent_55%)]" />
-      </div>
+        <div className="absolute inset-0 z-10 bg-black/40" />
 
-      {/* HERO */}
-      <section className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-20 px-6 py-32 lg:grid-cols-2">
-
-        {/* LEFT */}
-        <div>
-          <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Architectural Systems
-          </p>
-
-          <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Curtain Wall
-            <br />
-            System
-          </h1>
-
-          <div className="mt-8 h-px w-24 bg-yellow-500/70" />
-
-          <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Curtain wall glazing system designed for large architectural glass
-            façades, luxury commercial elevations, panoramic daylight, and
-            modern aluminum structural framing with premium performance.
-          </p>
-
-          {/* FEATURES */}
-          <div className="mt-14 grid grid-cols-2 gap-4">
-            {[
-              "Architectural Façade",
-              "Large Glass Elevations",
-              "Commercial System",
-              "Thermal Performance",
-              "Luxury Aluminum Frame",
-              "Modern Structural Design",
-            ].map((item) => (
-              <div
-                key={item}
-                className="border border-white/10 bg-white/[0.03] px-5 py-4 text-xs uppercase tracking-[0.18em] text-white/70"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* RIGHT GRAPHIC */}
-        <div className="relative flex items-center justify-center">
-
-          {/* BUILDING GRID */}
-          <div className="relative h-[620px] w-[480px] border border-yellow-500/40 bg-white/[0.03]">
-
-            {/* GRID */}
-            <div className="absolute inset-6 grid grid-cols-4 grid-rows-6">
-
-              {[...Array(24)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{
-                    opacity: [0.2, 0.45, 0.2],
-                  }}
-                  transition={{
-                    duration: 3 + (i % 5),
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="border border-yellow-500/20 bg-white/[0.03]"
-                />
-              ))}
-            </div>
-
-            {/* REFLECTION */}
-            <motion.div
-              animate={{
-                x: ["-120%", "140%"],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute top-0 h-full w-32 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-            />
-          </div>
-
-          {/* LABELS */}
-          <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Glass Façade
+        <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl items-center px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-400">
+              Luxora Commercial Systems
             </p>
+
+            <h1 className="text-5xl font-light uppercase tracking-[0.12em] text-white md:text-7xl">
+              Curtain Wall
+              <span className="block text-yellow-400">System</span>
+            </h1>
+
+            <div className="mt-8 h-[1px] w-24 bg-yellow-500/40" />
+
+            <p className="mt-8 max-w-xl text-sm leading-8 text-white/70">
+              High-performance glass facade systems designed for commercial,
+              residential, and luxury architectural projects with clean modern
+              lines and premium structural performance.
+            </p>
+
+            <a
+              href="/quote"
+              className="mt-10 inline-flex border border-yellow-500 bg-yellow-500 px-8 py-4 text-xs uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400"
+            >
+              Request Consultation
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[
+            [
+              "/curtain-wall-1.png",
+              "Commercial Facade",
+              "Elegant full-height glass elevations for office, retail, and mixed-use buildings.",
+            ],
+            [
+              "/curtain-wall-2.png",
+              "Luxury Residential",
+              "Modern curtain wall glazing for villas, custom homes, and high-end residences.",
+            ],
+            [
+              "/curtain-wall-3.png",
+              "Custom Engineering",
+              "Project-specific glazing systems designed for wind, structure, and thermal performance.",
+            ],
+          ].map(([image, title, desc]) => (
+            <div
+              key={title}
+              className="overflow-hidden border border-white/10 bg-white/[0.02]"
+            >
+              <img
+                src={image}
+                alt={title}
+                className="h-[320px] w-full object-cover"
+              />
+
+              <div className="p-7">
+                <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
+                  Curtain Wall
+                </p>
+
+                <h3 className="text-2xl font-light uppercase tracking-[0.12em]">
+                  {title}
+                </h3>
+
+                <p className="mt-5 text-sm leading-7 text-white/60">
+                  {desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="grid grid-cols-1 overflow-hidden border border-white/10 lg:grid-cols-2">
+          <div className="relative min-h-[500px]">
+            <img
+              src="/curtain-wall-hero.png"
+              alt="Curtain Wall Detail"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Structural System
+          <div className="flex flex-col justify-center bg-[#080808] p-10 md:p-14">
+            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-yellow-400">
+              Engineered Glass Facades
+            </p>
+
+            <h2 className="text-4xl font-light uppercase tracking-[0.1em]">
+              Structural Beauty
+              <span className="mt-2 block text-yellow-400">
+                Built For Performance
+              </span>
+            </h2>
+
+            <div className="mt-8 h-[1px] w-20 bg-yellow-500/40" />
+
+            <p className="mt-8 text-sm leading-8 text-white/60">
+              Luxora curtain wall systems combine precision aluminum framing,
+              insulated glass, drainage control, and custom engineering for
+              elegant building envelopes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* DETAILS */}
-      <section className="relative z-10 border-t border-white/10 bg-white/[0.02] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="border border-yellow-500/20 bg-black p-8">
+          <h3 className="mb-8 text-xl font-light uppercase tracking-[0.18em]">
+            System Specifications
+          </h3>
 
-          <div className="mb-14 flex items-center gap-5">
-            <div className="h-px w-16 bg-yellow-500/70" />
-
-            <h2 className="text-sm uppercase tracking-[0.32em] text-yellow-400">
-              System Details
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-
+          <div className="grid grid-cols-1 gap-4 text-sm md:grid-cols-2">
             {[
-              [
-                "Architecture",
-                "Designed for large commercial façades and modern architectural glazing systems.",
-              ],
-              [
-                "Performance",
-                "Premium aluminum framing with thermal insulation and insulated glass compatibility.",
-              ],
-              [
-                "Design",
-                "Minimal structural appearance with luxury glass visibility and clean geometric lines.",
-              ],
-            ].map(([title, text]) => (
+              ["System", "Curtain Wall System"],
+              ["Frame", "6066-T6 Aluminum"],
+              ["Glass", "Tempered / Laminated / Insulated"],
+              ["Glass Thickness", "Project Specific"],
+              ["Opening", "Fixed / Operable Insert"],
+              ["Thermal", "Thermal Break Available"],
+              ["Water Tightness", "High Performance"],
+              ["Wind Load", "Project Specific"],
+              ["Finish", "RAL / Anodized"],
+              ["Application", "Residential / Commercial"],
+            ].map(([label, value]) => (
               <div
-                key={title}
-                className="border border-white/10 bg-black/40 p-8"
+                key={label}
+                className="flex justify-between border-b border-white/10 pb-3"
               >
-                <div className="mb-6 h-px w-14 bg-yellow-500/70" />
-
-                <h3 className="text-lg font-light uppercase tracking-[0.16em]">
-                  {title}
-                </h3>
-
-                <p className="mt-6 text-sm leading-8 text-white/55">
-                  {text}
-                </p>
+                <span className="text-white/55">{label}</span>
+                <span>{value}</span>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {features.map((feature) => (
+            <div
+              key={feature}
+              className="border border-white/10 bg-white/[0.02] px-5 py-6 text-center"
+            >
+              <div className="mx-auto mb-4 flex h-8 w-8 items-center justify-center rounded-full border border-yellow-500/40">
+                <div className="h-2 w-2 rounded-full bg-yellow-400" />
+              </div>
+
+              <p className="text-xs uppercase tracking-[0.18em] text-white/65">
+                {feature}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="border border-yellow-500/20 bg-[#080808] px-8 py-20 text-center">
+          <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
+            Custom Building Envelope Systems
+          </p>
+
+          <h2 className="mt-6 text-4xl font-light uppercase tracking-[0.1em] md:text-5xl">
+            Request Custom
+            <span className="mt-2 block text-yellow-400">
+              Curtain Wall Design
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-white/60">
+            Let Luxora design a high-performance curtain wall system tailored
+            to your project.
+          </p>
+
+          <a
+            href="/quote"
+            className="mt-10 inline-flex border border-yellow-500 bg-yellow-500 px-10 py-4 text-xs uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400"
+          >
+            Request Consultation
+          </a>
         </div>
       </section>
     </main>

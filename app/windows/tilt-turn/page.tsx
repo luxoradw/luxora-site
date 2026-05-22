@@ -1,190 +1,218 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+type WindowMode = "tilt" | "turn" | "closed";
+
+const features = [
+  "Tilt Ventilation",
+  "Turn Opening",
+  "Thermal Break Frame",
+  "Retractable Screen",
+  "Double Glass",
+  "Premium Hardware",
+  "Water Tightness",
+  "Custom Finish",
+];
+
 export default function TiltTurnWindowPage() {
+  const [mode, setMode] = useState<WindowMode>("tilt");
+
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
-      
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.16),transparent_55%)]" />
-
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-yellow-500/10"
-            style={{
-              width: i % 2 === 0 ? "1px" : "180px",
-              height: i % 2 === 0 ? "180px" : "1px",
-              left: `${(i * 11) % 100}%`,
-              top: `${(i * 14) % 100}%`,
-            }}
-            animate={{
-              opacity: [0.1, 0.35, 0.1],
-              y: [0, -25, 0],
-            }}
-            transition={{
-              duration: 7 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* HERO */}
-      <section className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-20 px-6 py-32 lg:grid-cols-2">
-
-        {/* LEFT */}
-        <div>
-          <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Window Collection
+    <main className="min-h-screen bg-[#050505] px-6 py-20 text-white">
+      <section className="mx-auto max-w-7xl">
+        <div className="mb-12">
+          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-500/80">
+            Luxora Window Systems
           </p>
 
-          <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Tilt & Turn
-            <br />
-            Window System
+          <h1 className="text-3xl font-light uppercase tracking-[0.14em] md:text-5xl">
+            Tilt & Turn Window
           </h1>
 
-          <div className="mt-8 h-px w-24 bg-yellow-500/70" />
-
-          <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Tilt and turn window system with dual opening function for secure
-            ventilation, easy cleaning access, strong thermal sealing, and
-            modern architectural performance.
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/55">
+            Premium tilt and turn windows with dual opening function, clean
+            aluminum framing, strong insulation, and flexible ventilation for
+            modern luxury spaces.
           </p>
-
-          {/* FEATURES */}
-          <div className="mt-14 grid grid-cols-2 gap-4">
-
-            {[
-              "Dual Opening Function",
-              "Thermal Break",
-              "European Hardware",
-              "Strong Air Sealing",
-              "Easy Cleaning Access",
-              "Luxury Aluminum Finish",
-            ].map((item) => (
-              <div
-                key={item}
-                className="border border-white/10 bg-white/[0.03] px-5 py-4 text-xs uppercase tracking-[0.18em] text-white/70"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* RIGHT GRAPHIC */}
-        <div className="relative flex items-center justify-center">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.4fr_0.9fr]">
+          <div className="border border-white/10 bg-white/[0.025] p-6 md:p-10">
+            <div className="mb-6 flex flex-wrap gap-3">
+              {[
+                ["tilt", "Tilt Mode"],
+                ["turn", "Turn Mode"],
+                ["closed", "Closed"],
+              ].map(([value, label]) => (
+                <button
+                  key={value}
+                  onClick={() => setMode(value as WindowMode)}
+                  className={`border px-5 py-2 text-xs uppercase tracking-[0.22em] transition-all duration-300 ${
+                    mode === value
+                      ? "border-yellow-500 bg-yellow-500/10 text-yellow-400"
+                      : "border-white/15 text-white/55 hover:border-yellow-500/50 hover:text-yellow-400"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
 
-          {/* FRAME */}
-          <div className="relative h-[520px] w-[380px] border border-yellow-500/40 bg-white/[0.03]">
+            <TiltTurnVisual mode={mode} />
 
-            <div className="absolute inset-4 border border-yellow-500/20" />
-
-            {/* FIXED PANEL */}
-            <div className="absolute left-0 top-0 h-full w-1/2 border-r border-white/10 bg-white/[0.02]" />
-
-            {/* TILT TURN PANEL */}
-            <motion.div
-              animate={{
-                rotateY: [0, -38, 0],
-                rotateX: [0, 0, 10, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute right-0 top-0 h-full w-1/2 origin-left border-l border-yellow-500/40 bg-yellow-500/10"
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-            >
-              {/* HANDLE */}
-              <div className="absolute left-6 top-1/2 h-20 w-[5px] -translate-y-1/2 bg-yellow-400 shadow-[0_0_18px_rgba(234,179,8,0.8)]" />
-
-              <div className="absolute left-6 top-[48%] h-[5px] w-10 bg-yellow-400" />
-            </motion.div>
-
-            {/* GLASS REFLECTION */}
-            <motion.div
-              animate={{
-                x: ["-120%", "140%"],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute top-0 h-full w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-            />
+            <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+              {[
+                ["Frame", "6066-T6 Aluminum"],
+                ["Glass", "Double / Triple"],
+                ["Motion", "Tilt & Turn"],
+                ["Finish", "RAL / Anodized"],
+              ].map(([label, value]) => (
+                <div key={label} className="border border-white/10 p-4">
+                  <p className="text-xs uppercase tracking-widest text-yellow-400">
+                    {label}
+                  </p>
+                  <p className="mt-2 text-sm text-white/55">{value}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* SIDE INFO */}
-          <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Dual Function
-            </p>
-          </div>
-
-          <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Thermal Break
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SPEC SECTION */}
-      <section className="relative z-10 border-t border-white/10 bg-white/[0.02] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-14 flex items-center gap-5">
-            <div className="h-px w-16 bg-yellow-500/70" />
-
-            <h2 className="text-sm uppercase tracking-[0.32em] text-yellow-400">
-              System Details
+          <div className="border border-white/10 bg-white/[0.025] p-6 md:p-8">
+            <h2 className="mb-8 text-xl font-light uppercase tracking-[0.18em]">
+              NFRC Certified Performance
             </h2>
+
+            <div className="space-y-7">
+              <InfoBlock
+                title="Triple Glass"
+                rows={[
+                  ["U-Factor", "0.20"],
+                  ["SHGC", "0.36"],
+                  ["VT", "0.41"],
+                  ["CR", "67"],
+                  ["STC", "38"],
+                ]}
+              />
+
+              <InfoBlock
+                title="Double Glass"
+                rows={[
+                  ["U-Factor", "0.27"],
+                  ["SHGC", "0.35"],
+                  ["VT", "0.40"],
+                  ["CR", "49"],
+                  ["STC", "32"],
+                ]}
+              />
+
+              <InfoBlock
+                title="Specifications"
+                rows={[
+                  ["Frame", "6066-T6 Aluminum"],
+                  ["Thickness", "1.6mm / 2.5mm"],
+                  ["Glass", "Tempered / Double / Triple"],
+                  ["Opening", "Tilt & Turn"],
+                  ["Finish", "RAL / Anodized"],
+                ]}
+              />
+            </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {[
-              [
-                "Performance",
-                "High sealing performance with thermal insulation and secure locking system.",
-              ],
-              [
-                "Glass Options",
-                "Compatible with double glass, insulated glass, and performance glazing systems.",
-              ],
-              [
-                "Design",
-                "Minimal aluminum frame design with modern European architectural appearance.",
-              ],
-            ].map(([title, text]) => (
-              <div
-                key={title}
-                className="border border-white/10 bg-black/40 p-8"
-              >
-                <div className="mb-6 h-px w-14 bg-yellow-500/70" />
-
-                <h3 className="text-lg font-light uppercase tracking-[0.16em]">
-                  {title}
-                </h3>
-
-                <p className="mt-6 text-sm leading-8 text-white/55">
-                  {text}
-                </p>
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {features.map((feature) => (
+            <div
+              key={feature}
+              className="border border-white/10 bg-white/[0.025] px-5 py-5 text-center transition-all duration-300 hover:border-yellow-500/40"
+            >
+              <div className="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full border border-yellow-500/40">
+                <div className="h-2 w-2 rounded-full bg-yellow-400" />
               </div>
-            ))}
-          </div>
+
+              <p className="text-xs uppercase tracking-[0.18em] text-white/65">
+                {feature}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </main>
+  );
+}
+
+function TiltTurnVisual({ mode }: { mode: WindowMode }) {
+  const isTilt = mode === "tilt";
+  const isTurn = mode === "turn";
+
+  return (
+    <div className="relative flex h-[460px] items-center justify-center overflow-hidden bg-gradient-to-b from-white/[0.04] to-black">
+      <div className="relative h-[330px] w-[62%] border-[10px] border-[#1b1b1b] bg-[#0b0b0b] shadow-2xl">
+        <div className="absolute left-[-10px] right-[-10px] top-[-10px] h-[5px] bg-yellow-500/30" />
+        <div className="absolute bottom-[-10px] left-[-10px] right-[-10px] h-[5px] bg-yellow-500/20" />
+
+        <div className="absolute inset-[18px] border border-white/10">
+          <motion.div
+            animate={{
+              rotateX: isTilt ? -22 : 0,
+              rotateY: isTurn ? -55 : 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 70,
+              damping: 18,
+            }}
+            className="absolute inset-0 border-[7px] border-[#2a2a2a] bg-[#111] shadow-[18px_0_40px_rgba(0,0,0,.55)]"
+            style={{
+              transformStyle: "preserve-3d",
+              transformOrigin: isTurn ? "left center" : "top center",
+            }}
+          >
+            <div className="absolute inset-[10px] border border-white/10 bg-gradient-to-br from-white/15 via-white/[0.04] to-transparent">
+              <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent)]" />
+            </div>
+
+            <div className="absolute right-5 top-1/2 h-10 w-2 -translate-y-1/2 rounded-full bg-yellow-500/50" />
+          </motion.div>
+
+          {isTilt && (
+            <div className="absolute left-8 right-8 top-5 h-[2px] bg-yellow-500/40" />
+          )}
+
+          {isTurn && (
+            <div className="absolute left-5 top-8 h-[80%] w-[2px] bg-yellow-500/35" />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InfoBlock({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: string[][];
+}) {
+  return (
+    <div>
+      <h3 className="bg-white/10 py-3 text-center text-sm uppercase tracking-[0.18em]">
+        {title}
+      </h3>
+
+      <div className="text-sm text-white/60">
+        {rows.map(([label, value]) => (
+          <div
+            key={label}
+            className="flex justify-between gap-5 border-b border-white/10 py-2"
+          >
+            <span>{label}</span>
+            <span className="text-right">{value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

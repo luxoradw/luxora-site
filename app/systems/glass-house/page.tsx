@@ -2,182 +2,264 @@
 
 import { motion } from "framer-motion";
 
+const features = [
+  "Full Glass Elevation",
+  "Luxury Exterior System",
+  "Thermal Break Aluminum",
+  "Minimal Sightline",
+  "Panoramic View",
+  "Custom Engineering",
+  "Water Tightness",
+  "Premium Finish",
+];
+
 export default function GlassHousePage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-black text-white">
-
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.16),transparent_55%)]" />
-      </div>
-
+    <main className="min-h-screen bg-black text-white">
+      
       {/* HERO */}
-      <section className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-20 px-6 py-32 lg:grid-cols-2">
+      <section className="relative flex min-h-screen items-center overflow-hidden">
+        
+        <img
+          src="/glass-house-hero.png"
+          alt="Glass House"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        {/* LEFT */}
-        <div>
-          <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
-            Luxora Architectural Systems
-          </p>
+        <div className="absolute inset-0 bg-black/60" />
 
-          <h1 className="text-4xl font-light uppercase leading-tight tracking-[0.14em] md:text-6xl">
-            Glass House
-            <br />
-            System
-          </h1>
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            
+            <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-400">
+              Luxora Custom Systems
+            </p>
 
-          <div className="mt-8 h-px w-24 bg-yellow-500/70" />
+            <h1 className="text-5xl font-light uppercase tracking-[0.12em] md:text-7xl">
+              Glass House
+              <span className="block text-yellow-400">
+                Systems
+              </span>
+            </h1>
 
-          <p className="mt-10 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-            Luxury glass house system with premium aluminum framing, panoramic
-            visibility, natural daylight, and elegant architectural design for
-            sunrooms, garden rooms, outdoor lounges, and modern living spaces.
-          </p>
+            <div className="mt-8 h-[1px] w-24 bg-yellow-500/40" />
 
-          {/* FEATURES */}
-          <div className="mt-14 grid grid-cols-2 gap-4">
-            {[
-              "Panoramic Glass",
-              "Luxury Outdoor Living",
-              "Modern Aluminum Frame",
-              "Natural Daylight",
-              "Custom Architectural Design",
-              "Indoor-Outdoor Connection",
-            ].map((item) => (
-              <div
-                key={item}
-                className="border border-white/10 bg-white/[0.03] px-5 py-4 text-xs uppercase tracking-[0.18em] text-white/70"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+            <p className="mt-8 max-w-xl text-sm leading-8 text-white/70">
+              Custom architectural glass structures designed for luxury living,
+              panoramic visibility, and seamless indoor-outdoor connection.
+            </p>
+
+            <a
+              href="/quote"
+              className="mt-10 inline-flex border border-yellow-500 bg-yellow-500 px-8 py-4 text-xs uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400"
+            >
+              Request Consultation
+            </a>
+
+          </motion.div>
+
         </div>
 
-        {/* RIGHT GRAPHIC */}
-        <div className="relative flex items-center justify-center">
-
-          {/* STRUCTURE */}
-          <div className="relative h-[540px] w-[640px] max-w-full">
-
-            {/* BASE */}
-            <div className="absolute bottom-0 left-[10%] h-[300px] w-[80%] border border-yellow-500/40 bg-white/[0.03]" />
-
-            {/* ROOF */}
-            <div className="absolute left-[16%] top-[90px] h-[2px] w-[34%] rotate-[-28deg] bg-yellow-400/70" />
-
-            <div className="absolute right-[16%] top-[90px] h-[2px] w-[34%] rotate-[28deg] bg-yellow-400/70" />
-
-            {/* CENTER SUPPORT */}
-            <div className="absolute left-1/2 top-[90px] h-[300px] w-px -translate-x-1/2 bg-yellow-500/40" />
-
-            {/* SIDE SUPPORTS */}
-            <div className="absolute left-[18%] top-[140px] h-[250px] w-px bg-yellow-500/30" />
-
-            <div className="absolute right-[18%] top-[140px] h-[250px] w-px bg-yellow-500/30" />
-
-            {/* GLASS PANELS */}
-            <motion.div
-              animate={{
-                opacity: [0.25, 0.45, 0.25],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[12%] top-[120px] h-[260px] w-[76%] bg-white/[0.04]"
-            />
-
-            {/* REFLECTION */}
-            <motion.div
-              animate={{
-                x: ["-120%", "140%"],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute left-[12%] top-[120px] h-[260px] w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-            />
-
-            {/* LIGHT GLOW */}
-            <motion.div
-              animate={{
-                opacity: [0.15, 0.35, 0.15],
-                scale: [1, 1.08, 1],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-[25%] top-[160px] h-[180px] w-[180px] rounded-full bg-yellow-500/20 blur-3xl"
-            />
-          </div>
-
-          {/* LABELS */}
-          <div className="absolute -right-4 top-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Panoramic Glass
-            </p>
-          </div>
-
-          <div className="absolute -left-4 bottom-10 hidden border border-yellow-500/20 bg-black/70 px-5 py-4 backdrop-blur-xl md:block">
-            <p className="text-[10px] uppercase tracking-[0.28em] text-yellow-400">
-              Luxury Structure
-            </p>
-          </div>
-        </div>
       </section>
 
-      {/* DETAILS */}
-      <section className="relative z-10 border-t border-white/10 bg-white/[0.02] px-6 py-28">
-        <div className="mx-auto max-w-7xl">
+      {/* CARDS */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
 
-          <div className="mb-14 flex items-center gap-5">
-            <div className="h-px w-16 bg-yellow-500/70" />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
-            <h2 className="text-sm uppercase tracking-[0.32em] text-yellow-400">
-              System Details
+          {/* CARD 1 */}
+          <div className="overflow-hidden border border-white/10 bg-white/[0.02]">
+            
+            <img
+              src="/glass-house-1.png"
+              alt="Pool House"
+              className="h-[320px] w-full object-cover"
+            />
+
+            <div className="p-7">
+              
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
+                Glass House
+              </p>
+
+              <h3 className="text-2xl font-light uppercase tracking-[0.12em]">
+                Pool House
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-white/60">
+                Luxury poolside glass structures designed for relaxation and entertainment.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* CARD 2 */}
+          <div className="overflow-hidden border border-white/10 bg-white/[0.02]">
+            
+            <img
+              src="/glass-house-2.png"
+              alt="Garden Glass Room"
+              className="h-[320px] w-full object-cover"
+            />
+
+            <div className="p-7">
+              
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
+                Glass House
+              </p>
+
+              <h3 className="text-2xl font-light uppercase tracking-[0.12em]">
+                Garden Glass Room
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-white/60">
+                Elegant glass rooms connecting interior living with outdoor nature.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* CARD 3 */}
+          <div className="overflow-hidden border border-white/10 bg-white/[0.02]">
+            
+            <img
+              src="/glass-house-3.png"
+              alt="Rooftop Enclosure"
+              className="h-[320px] w-full object-cover"
+            />
+
+            <div className="p-7">
+              
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow-400">
+                Glass House
+              </p>
+
+              <h3 className="text-2xl font-light uppercase tracking-[0.12em]">
+                Rooftop Enclosure
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-white/60">
+                Premium rooftop and patio enclosures with panoramic visibility.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* DETAIL SECTION */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+
+        <div className="grid grid-cols-1 overflow-hidden border border-white/10 lg:grid-cols-2">
+
+          <div className="relative min-h-[500px]">
+
+            <img
+              src="/glass-house-hero.png"
+              alt="Glass House Detail"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-black/40" />
+
+          </div>
+
+          <div className="flex flex-col justify-center bg-[#080808] p-10 md:p-14">
+
+            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-yellow-400">
+              Details That Define Luxury
+            </p>
+
+            <h2 className="text-4xl font-light uppercase tracking-[0.1em]">
+              Exceptional Design
+              <span className="mt-2 block text-yellow-400">
+                Perfected In Every Detail
+              </span>
             </h2>
+
+            <div className="mt-8 h-[1px] w-20 bg-yellow-500/40" />
+
+            <p className="mt-8 text-sm leading-8 text-white/60">
+              Every Luxora Glass House is engineered with precision,
+              built using premium materials, and designed to deliver
+              unmatched beauty and architectural elegance.
+            </p>
+
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {[
-              [
-                "Architecture",
-                "Designed for luxury outdoor rooms, garden lounges, patios, and panoramic glass living spaces.",
-              ],
-              [
-                "Performance",
-                "Premium aluminum framing with insulated glazing and modern structural stability.",
-              ],
-              [
-                "Design",
-                "Elegant glass visibility with refined aluminum detailing and clean architectural geometry.",
-              ],
-            ].map(([title, text]) => (
-              <div
-                key={title}
-                className="border border-white/10 bg-black/40 p-8"
-              >
-                <div className="mb-6 h-px w-14 bg-yellow-500/70" />
-
-                <h3 className="text-lg font-light uppercase tracking-[0.16em]">
-                  {title}
-                </h3>
-
-                <p className="mt-6 text-sm leading-8 text-white/55">
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
+
       </section>
+
+      {/* FEATURES */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+
+          {features.map((feature) => (
+            <div
+              key={feature}
+              className="border border-white/10 bg-white/[0.02] px-5 py-6 text-center"
+            >
+              
+              <div className="mx-auto mb-4 flex h-8 w-8 items-center justify-center rounded-full border border-yellow-500/40">
+                <div className="h-2 w-2 rounded-full bg-yellow-400" />
+              </div>
+
+              <p className="text-xs uppercase tracking-[0.18em] text-white/65">
+                {feature}
+              </p>
+
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+
+        <div className="border border-yellow-500/20 bg-[#080808] px-8 py-20 text-center">
+
+          <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
+            Custom Architectural Systems
+          </p>
+
+          <h2 className="mt-6 text-4xl font-light uppercase tracking-[0.1em] md:text-5xl">
+            Request Custom
+            <span className="mt-2 block text-yellow-400">
+              Glass House Design
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-white/60">
+            Let Luxora create a custom luxury glass structure tailored
+            specifically for your architectural vision.
+          </p>
+
+          <a
+            href="/quote"
+            className="mt-10 inline-flex border border-yellow-500 bg-yellow-500 px-10 py-4 text-xs uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400"
+          >
+            Request Consultation
+          </a>
+
+        </div>
+
+      </section>
+
     </main>
   );
 }
