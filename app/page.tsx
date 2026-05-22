@@ -160,9 +160,7 @@ export default function HomePage() {
             Luxora Collection
           </p>
 
-          <h1 className="font-serif text-5xl leading-tight text-white md:text-7xl">
-            Luxury Doors & Windows
-          </h1>
+
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-neutral-300">
             Refined aluminum systems crafted for modern architecture and

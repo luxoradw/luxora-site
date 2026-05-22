@@ -298,7 +298,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
         </p>
 
         <p className="mt-8 text-xs uppercase tracking-[0.25em] text-yellow-400">
-          View System →
+          Learn More →
         </p>
       </motion.div>
     </Link>
