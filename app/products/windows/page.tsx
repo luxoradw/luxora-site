@@ -1,182 +1,271 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const performance = [
-  ["THERMAL INSULATION", "95%"],
-  ["WATER TIGHTNESS", "90%"],
-  ["AIR PERMEABILITY", "90%"],
-  ["WIND RESISTANCE", "95%"],
-  ["SOUND INSULATION", "85%"],
+const systems = [
+  {
+    title: "LX 70",
+    type: "CASEMENT WINDOW",
+    image: "/lx70.png",
+  },
+  {
+    title: "LX 85",
+    type: "TILT & TURN WINDOW",
+    image: "/lx85.png",
+  },
+  {
+    title: "LX SLIDE",
+    type: "SLIDING WINDOW",
+    image: "/lxslide.png",
+  },
+  {
+    title: "LX LIFT",
+    type: "LIFT & SLIDE DOOR",
+    image: "/lxlift.png",
+  },
+  {
+    title: "LX FIX",
+    type: "FIXED WINDOW",
+    image: "/lxfix.png",
+  },
 ];
 
 export default function WindowsPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
-      <section className="relative min-h-screen overflow-hidden border-b border-yellow-500/20 px-6 pb-20 pt-36">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_35%,rgba(234,179,8,0.14),transparent_42%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,.9)_35%,rgba(5,5,5,.65)_70%,#050505_100%)]" />
+    <main className="min-h-screen bg-black text-white">
 
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-yellow-400/10 px-6 py-20">
+
+        {/* Background Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.18),transparent_35%)]" />
+
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+
+          {/* LEFT */}
           <div>
-            <div className="mb-10 flex items-center gap-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.45em] text-yellow-500">
-                Window Systems
-              </p>
-              <div className="h-px flex-1 bg-yellow-500/40" />
-            </div>
 
-            <h1 className="font-serif text-5xl uppercase leading-[1.02] tracking-[0.05em] md:text-7xl">
-              Engineered For
-              <br />
-              <span className="text-yellow-500">Performance</span>
-            </h1>
-
-            <p className="mt-9 max-w-xl text-base leading-8 text-white/65">
-              Premium aluminum window systems designed for luxury, efficiency,
-              and durability. Built with advanced thermal break technology for
-              superior insulation, comfort, and energy performance.
+            <p className="mb-6 text-xs uppercase tracking-[0.42em] text-yellow-400">
+              Engineered For Excellence
             </p>
 
+            <h1 className="font-serif text-6xl leading-tight md:text-7xl">
+              Luxora <br />
+              <span className="text-yellow-300">
+                Window Systems
+              </span>
+            </h1>
+
+            <p className="mt-8 max-w-xl text-lg leading-8 text-neutral-300">
+              Designed to inspire. Built to last. Premium aluminum
+              systems crafted for modern architecture and luxury living.
+            </p>
+
+            {/* Features */}
             <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+
               {[
-                "THERMAL INSULATION",
-                "ENERGY EFFICIENCY",
-                "SOUND REDUCTION",
-                "WATER & AIR TIGHTNESS",
+                "Premium Quality",
+                "Thermal Insulation",
+                "Sound Insulation",
+                "Maximum Security",
               ].map((item) => (
-                <div key={item}>
-                  <div className="mb-3 text-2xl text-yellow-500">⌁</div>
-                  <p className="text-[10px] font-semibold uppercase leading-5 tracking-[0.14em] text-white/80">
+
+                <div
+                  key={item}
+                  className="border-l border-yellow-400/30 pl-4 text-sm text-neutral-300"
+                >
+                  {item}
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* RIGHT IMAGE */}
+ {/* RIGHT IMAGE */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.96 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1 }}
+  className="relative overflow-hidden rounded-[36px] border border-yellow-400/20"
+>
+
+  <img
+    src="/window-hero.png"
+    alt="Luxora Window Systems"
+    className="h-[620px] w-full object-cover"
+  />
+
+  <div className="absolute inset-0 bg-black/30" />
+
+</motion.div>
+
+        </div>
+
+      </section>
+
+      {/* SYSTEMS */}
+      <section className="px-6 py-20">
+
+        <div className="mx-auto max-w-7xl">
+
+          <p className="text-center text-xs uppercase tracking-[0.42em] text-yellow-400">
+            Our Window Systems
+          </p>
+
+          <h2 className="mt-5 text-center font-serif text-5xl">
+            Performance Meets Luxury
+          </h2>
+
+          {/* CARDS */}
+          <div className="mt-14 grid gap-6 md:grid-cols-5">
+
+            {systems.map((item) => (
+
+              <motion.div
+                key={item.title}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.35 }}
+                className="group overflow-hidden rounded-2xl border border-yellow-400/20 bg-white/[0.03] p-5 backdrop-blur-md hover:border-yellow-400/50"
+              >
+
+                <h3 className="text-center font-serif text-3xl text-yellow-300">
+                  {item.title}
+                </h3>
+
+                <p className="mb-5 text-center text-xs uppercase tracking-[0.18em] text-neutral-300">
+                  {item.type}
+                </p>
+
+                {/* IMAGE */}
+                <div className="relative overflow-hidden rounded-xl bg-neutral-950">
+
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(212,175,55,0.12),transparent_70%)]" />
+
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="relative z-10 h-[260px] w-full object-contain transition duration-700 group-hover:scale-105"
+                  />
+
+                </div>
+
+              </motion.div>
+
+            ))}
+
+          </div>
+
+          {/* PERFORMANCE + DETAIL */}
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+
+            {/* PERFORMANCE */}
+            <div className="rounded-3xl border border-yellow-400/20 bg-white/[0.03] p-8">
+
+              <h3 className="mb-8 font-serif text-3xl text-yellow-300">
+                Performance
+              </h3>
+
+              {[
+                "Thermal Insulation",
+                "Water Tightness",
+                "Wind Resistance",
+                "Sound Insulation",
+                "Security",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="flex items-center justify-between border-b border-white/10 py-4"
+                >
+                  <span className="text-neutral-300">
                     {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-14 rounded-[18px] border border-yellow-500/25 bg-black/45 p-6 backdrop-blur-xl">
-              <p className="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-yellow-500">
-                Thermal Break Technology
-              </p>
-
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-[180px_1fr]">
-                <div className="relative h-[130px] rounded-lg border border-white/10 bg-[#080808]">
-                  <div className="absolute left-6 right-6 top-8 bottom-8 border-[7px] border-zinc-500">
-                    <div className="absolute left-1/2 top-[-7px] h-[calc(100%+14px)] w-9 -translate-x-1/2 bg-yellow-500 shadow-[0_0_30px_rgba(234,179,8,.75)]" />
-                    <div className="absolute left-0 top-1/2 h-[6px] w-full -translate-y-1/2 bg-zinc-300/70" />
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-sm leading-7 text-white/62">
-                    Advanced polyamide thermal break separates the interior and
-                    exterior aluminum profiles, reducing heat transfer and
-                    improving energy efficiency.
-                  </p>
-
-                  <div className="mt-7">
-                    <div className="mb-2 flex justify-between text-[9px] uppercase tracking-[0.14em] text-white/65">
-                      <span>Cold Outside</span>
-                      <span>Warm Inside</span>
-                    </div>
-                    <div className="h-2 rounded-full bg-gradient-to-r from-blue-500 via-yellow-400 to-red-500" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="relative min-h-[720px]"
-          >
-            <div className="absolute left-[8%] top-0 h-[620px] w-[340px] rounded-sm bg-gradient-to-br from-zinc-950 via-zinc-900 to-black shadow-[0_0_100px_rgba(0,0,0,.9)]">
-              <div className="absolute inset-8 border-[18px] border-zinc-800 bg-gradient-to-br from-white/25 via-white/8 to-transparent">
-                <div className="absolute left-16 top-0 h-full w-16 rotate-[13deg] bg-white/10 blur-lg" />
-                <div className="absolute right-12 top-0 h-full w-px bg-white/55" />
-                <div className="absolute right-20 top-0 h-full w-px bg-white/25" />
-                <div className="absolute right-28 top-0 h-full w-px bg-white/15" />
-              </div>
-            </div>
-
-            <div className="absolute bottom-4 left-[38%] h-[300px] w-[260px] border-[9px] border-zinc-300 bg-black shadow-[0_0_80px_rgba(234,179,8,.18)]">
-              <div className="absolute inset-5 border-[12px] border-zinc-800">
-                <div className="absolute left-1/2 top-[-12px] h-[calc(100%+24px)] w-12 -translate-x-1/2 bg-yellow-500 shadow-[0_0_30px_rgba(234,179,8,.85)]" />
-                <div className="absolute left-0 top-1/2 h-[8px] w-full -translate-y-1/2 bg-zinc-300/75" />
-                <div className="absolute left-1/2 top-0 h-full w-[8px] -translate-x-1/2 bg-zinc-300/75" />
-              </div>
-            </div>
-
-            {[
-              ["DOUBLE / TRIPLE GLAZING", "High performance glass for insulation & comfort", "top-12"],
-              ["THERMAL BREAK TECHNOLOGY", "Reduces heat transfer for energy efficiency", "top-[225px]"],
-              ["EUROPEAN HARDWARE", "Premium quality for smooth & durable operation", "top-[410px]"],
-              ["MULTI CHAMBER PROFILE", "Stronger profile for better performance", "bottom-8"],
-            ].map(([title, text, pos]) => (
-              <div key={title} className={`absolute right-0 ${pos} w-[220px]`}>
-                <div className="mb-3 h-px w-full bg-yellow-500/45" />
-                <p className="text-xs font-bold uppercase leading-5 tracking-[0.13em] text-yellow-500">
-                  {title}
-                </p>
-                <p className="mt-3 text-xs leading-6 text-white/58">{text}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="relative px-6 py-24">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-[1.1fr_.9fr]">
-          <div>
-            <div className="mb-12 flex items-center gap-5">
-              <p className="text-xs uppercase tracking-[0.35em] text-yellow-500">
-                Performance At A Glance
-              </p>
-              <div className="h-px flex-1 bg-yellow-500/25" />
-            </div>
-
-            {performance.map(([name, value]) => (
-              <div key={name} className="mb-8 grid grid-cols-[170px_1fr_55px] items-center gap-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-yellow-500">
-                  {name}
-                </p>
-                <div className="h-[3px] bg-white/10">
-                  <div className="h-full bg-yellow-500" style={{ width: value }} />
-                </div>
-                <p className="text-sm text-white/80">{value}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="rounded-[28px] border border-yellow-500/25 bg-white/[0.03] p-9">
-            <h2 className="text-2xl uppercase leading-9 tracking-[0.12em] text-yellow-500">
-              Why Choose Our
-              <br />
-              Window Systems?
-            </h2>
-
-            <div className="mt-9 space-y-5">
-              {[
-                "Advanced Thermal Break Technology",
-                "Energy Efficient & Eco Friendly",
-                "Premium Aluminum Profiles",
-                "European Hardware Systems",
-                "Custom Sizes & Colors",
-                "Tested For High Performance",
-                "Long Lasting Durability",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-4">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-yellow-500/60 text-xs text-yellow-500">
-                    ✓
                   </span>
-                  <p className="text-sm text-white/68">{item}</p>
+
+                  <span className="text-yellow-400">
+                    ★★★★★
+                  </span>
                 </div>
+
               ))}
+
             </div>
+
+            {/* DETAIL IMAGE */}
+            <div className="overflow-hidden rounded-3xl border border-yellow-400/20">
+
+              <img
+                src="/detail-section.png"
+                alt="Detail Section"
+                className="h-full w-full object-cover"
+              />
+
+            </div>
+
           </div>
+
+          {/* FINISHES */}
+          <div className="mt-12 rounded-3xl border border-yellow-400/20 bg-white/[0.03] p-8">
+
+            <h3 className="mb-8 font-serif text-3xl text-yellow-300">
+              Premium Finishes
+            </h3>
+
+            <div className="grid gap-4 md:grid-cols-5">
+
+              {[
+                "Matte Black",
+                "Anthracite Grey",
+                "Champagne Gold",
+                "Silver Grey",
+                "Custom RAL Colours",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="rounded-xl border border-yellow-400/20 bg-black/40 p-6 text-center text-sm text-neutral-300"
+                >
+                  {item}
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* CTA */}
+          <div className="mt-12 flex flex-col items-center justify-between gap-6 rounded-3xl border border-yellow-400/30 bg-gradient-to-r from-yellow-400/5 to-transparent p-8 md:flex-row">
+
+            <div>
+
+              <h3 className="font-serif text-3xl">
+                Let’s Build Something Exceptional
+              </h3>
+
+              <p className="mt-2 text-neutral-400">
+                Get in touch for tailored solutions for your project.
+              </p>
+
+            </div>
+
+            <Link
+              href="/quote"
+              className="rounded-xl bg-yellow-400 px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-black transition hover:bg-yellow-300"
+            >
+              Get A Quote
+            </Link>
+
+          </div>
+
         </div>
+
       </section>
+
     </main>
   );
 }
