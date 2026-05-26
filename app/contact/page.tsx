@@ -56,7 +56,7 @@ export default function ContactPage() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/luxoradw"
+                href="//instagram.com/luxora.doors_windows/"
                 target="_blank"
                 className="text-neutral-500 transition-all duration-300 hover:scale-110 hover:text-yellow-400"
               >
