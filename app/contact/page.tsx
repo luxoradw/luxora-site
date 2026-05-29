@@ -74,7 +74,7 @@ export default function ContactPage() {
 
               {/* Email */}
               <a
-                href="mailto:info@luxoradw.com"
+                href="mailto:Luxora.dw@gmail.com"
                 className="text-neutral-500 transition-all duration-300 hover:scale-110 hover:text-yellow-400"
               >
                 <FaEnvelope />
