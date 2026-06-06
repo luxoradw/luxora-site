@@ -128,7 +128,7 @@ export default function AboutPage() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 h-full w-full object-cover opacity-50 transition duration-700 group-hover:scale-110 group-hover:opacity-70"
+                  className="absolute inset-0 h-full w-full object-cover opacity95 transition duration-700 group-hover:scale-110 group-hover:opacity-70"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 to-transparent" />
@@ -180,54 +180,61 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 py-20">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 border border-yellow-400/30 bg-white/[0.025] p-8 md:p-12 lg:grid-cols-[0.8fr_1.2fr_0.5fr]">
-          <div className="relative min-h-[300px] overflow-hidden">
-            <img
-              src="/catalog-cover.png"
-              alt="Luxora catalog"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+<section className="px-6 py-24 bg-gradient-to-b from-[#050505] to-[#0b0b0b]">
+  <div className="mx-auto max-w-7xl">
 
-          <div>
-            <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-400">
-              Luxora Catalog
-            </p>
+    <div className="mb-16 text-center">
+      <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+        Customization
+      </p>
 
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              Download Our <br />
-              <span className="text-yellow-300">Premium Catalog</span>
-            </h2>
+      <h2 className="font-serif text-5xl md:text-7xl">
+        Crafted Around
+        <span className="block text-yellow-300">
+          Your Vision
+        </span>
+      </h2>
 
-            <p className="mt-6 max-w-2xl leading-8 text-neutral-400">
-              Explore our complete collection of doors, windows, curtain wall
-              systems, glazing options, finishes, and architectural solutions.
-            </p>
+      <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-neutral-400">
+        Every Luxora system can be personalized with premium finishes,
+        architectural glass solutions, and luxury hardware selections.
+      </p>
+    </div>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="/luxora-catalog.pdf"
-                download
-                className="bg-yellow-400 px-7 py-4 text-xs font-bold uppercase tracking-[0.22em] text-black transition hover:bg-yellow-300"
-              >
-                Download Catalog
-              </a>
+    <Link
+      href="/customization"
+      className="group relative block overflow-hidden border border-yellow-400/20"
+    >
+      <img
+        src="/about-customization-hero.png"
+        alt="Luxora Customization"
+        className="h-[600px] w-full object-cover transition duration-700 group-hover:scale-105"
+      />
 
-              <Link
-                href="/products"
-                className="border border-yellow-400/50 px-7 py-4 text-xs font-bold uppercase tracking-[0.22em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
-              >
-                View Products →
-              </Link>
-            </div>
-          </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-          <div className="hidden items-center justify-center border border-yellow-400/30 p-10 lg:flex">
-            <div className="text-5xl text-yellow-400">↓</div>
-          </div>
+      <div className="absolute bottom-0 left-0 p-12 md:p-16">
+        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-400">
+          Colors • Glass • Hardware
+        </p>
+
+        <h3 className="font-serif text-5xl md:text-7xl">
+          Customization
+        </h3>
+
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
+          Explore premium finishes, advanced glazing options,
+          and refined hardware selections designed for modern luxury homes.
+        </p>
+
+        <div className="mt-8 inline-flex items-center border border-yellow-400 px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-yellow-300">
+          Explore Customization →
         </div>
-      </section>
+      </div>
+    </Link>
+
+  </div>
+</section>
 
       <section className="border-t border-yellow-400/10 px-6 py-24">
         <div className="mx-auto max-w-7xl">
@@ -251,31 +258,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 border-t border-yellow-400/20 pt-14 md:grid-cols-[1fr_auto]">
-          <div>
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-400">
-              Luxora Doors & Windows
-            </p>
+<section className="px-6 pb-32">
+  <div className="mx-auto max-w-7xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
+    <div className="grid lg:grid-cols-2">
 
-            <h2 className="font-serif text-4xl md:text-5xl">
-              Let’s Build Something <span className="text-yellow-300">Exceptional Together</span>
-            </h2>
+      <div className="p-12 md:p-20">
+        <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+          Start Your Project
+        </p>
 
-            <p className="mt-5 max-w-2xl leading-8 text-neutral-400">
-              Partner with Luxora for premium door and window solutions that
-              elevate every space.
-            </p>
-          </div>
+        <h2 className="font-serif text-5xl leading-tight md:text-7xl">
+          Luxury Begins
+          <br />
+          <span className="text-yellow-300">
+            With The Right Opening
+          </span>
+        </h2>
 
-          <Link
-            href="/quote"
-            className="border border-yellow-400/60 px-10 py-5 text-xs font-bold uppercase tracking-[0.28em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
-          >
-            Contact Us →
-          </Link>
-        </div>
-      </section>
+        <p className="mt-8 max-w-xl text-lg leading-8 text-neutral-400">
+          Discover premium aluminum doors and windows designed
+          to transform modern architecture with performance,
+          elegance, and timeless beauty.
+        </p>
+
+        <Link
+          href="/quote"
+          className="mt-10 inline-block border border-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
+        >
+          Request Quote →
+        </Link>
+      </div>
+
+      <div className="relative min-h-[500px]">
+        <img
+          src="/about-cta.png"
+          alt="Luxury House"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
     </main>
   );
 }

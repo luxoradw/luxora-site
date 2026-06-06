@@ -26,6 +26,13 @@ const sections = [
       { title: "Folding Doors", href: "/doors/folding", type: "foldingDoor", description: "Thermal break folding door with multiple panels that fold and stack aside to create a wide open living space." },
       { title: "Pivot Doors", href: "/doors/pivot", type: "pivotDoor", description: "Architectural pivot door with center-axis rotation, oversized entrance look, strong aluminum frame, and luxury glass design." },
       { title: "Casement Doors", href: "/doors/casement", type: "casementDoor", description: "Thermal break casement door with hinged swing operation, strong sealing, insulated glass, and clean exterior performance." },
+      {
+  title: "Screen Doors",
+  href: "/products/screen-doors",
+  type: "screenDoor",
+  description:
+    "Luxury retractable, sliding, and pleated screen systems designed for modern homes.",
+},
       { title: "Barn Doors", href: "/doors/barn", type: "barnDoor", description: "Interior barn door with exposed top rail, smooth side-sliding movement, slim frame profile, and modern partition style." },
       { title: "Lift Sliding Door", href: "/doors/lift-sliding", type: "liftSlidingDoor", description: "Heavy-panel lift sliding door system with smooth operation, wide glass openings, and high insulation performance." },
       { title: "Heavy Duty Sliding Door", href: "/doors/heavy-duty-sliding", type: "heavySlidingDoor", description: "Heavy duty sliding system for oversized openings, stronger panels, durable movement, and luxury architectural spaces." },
@@ -253,7 +260,33 @@ function ProductGraphic({ type }: { type: string }) {
           <div className="absolute bottom-6 left-[10%] right-[10%] h-[3px] bg-yellow-500/55" />
         </>
       )}
+{type === "screenDoor" && (
+  <>
+    <div className="absolute left-[22%] top-7 h-32 w-28 border border-white/20" />
 
+    <motion.div
+      animate={{ x: [0, 55, 0] }}
+      transition={{
+        duration: 3.4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <div className="absolute left-[42%] top-7 h-32 w-28 border-[4px] border-[#444] bg-black/20">
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px)",
+            backgroundSize: "8px 8px",
+          }}
+        />
+      </div>
+    </motion.div>
+
+    <div className="absolute bottom-6 left-[20%] right-[20%] h-[2px] bg-yellow-500/45" />
+  </>
+)}
       {type === "curtainWall" && (
         <div className="absolute left-[21%] top-8 grid h-32 w-48 grid-cols-3 grid-rows-2 border border-yellow-400/80 shadow-2xl">
           {[0, 1, 2, 3, 4, 5].map((i) => (
