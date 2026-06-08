@@ -2,39 +2,44 @@ export default function GlassOptionsPage() {
   const glassOptions = [
     {
       title: "Clear Glass",
-      description:
-        "Maximum visibility and natural daylight with a clean modern appearance.",
-    },
-    {
-      title: "Low-E Glass",
-      description:
-        "Improves energy efficiency by reducing heat transfer and UV exposure.",
-    },
-    {
-      title: "Tempered Glass",
-      description:
-        "Enhanced safety and strength for residential and commercial applications.",
-    },
-    {
-      title: "Laminated Glass",
-      description:
-        "Superior security, sound control, and protection against breakage.",
+      description: "Clean transparent glass for maximum daylight and visibility.",
     },
     {
       title: "Tinted Glass",
-      description:
-        "Reduces glare and solar heat gain while enhancing aesthetics.",
+      description: "Reduces glare and solar heat while adding a refined appearance.",
     },
     {
-      title: "Insulated Glass",
-      description:
-        "Multi-pane glass units engineered for thermal performance and comfort.",
+      title: "Grey Glass",
+      description: "Modern grey-toned glass for privacy, shading, and luxury design.",
+    },
+    {
+      title: "Bronze Glass",
+      description: "Warm bronze-toned glass for elegant architectural projects.",
+    },
+    {
+      title: "Obscure Glass",
+      description: "Privacy glass with textured appearance for bathrooms and specialty areas.",
+    },
+    {
+      title: "Fluted Glass",
+      description: "Vertical textured glass with a decorative luxury appearance.",
+    },
+    {
+      title: "Insulated Clear Low-E",
+      description: "Low-E insulated glass with argon-filled performance.",
+    },
+    {
+      title: "Insulated Low-E",
+      description: "High-performance insulated glass for improved energy efficiency.",
+    },
+    {
+      title: "Laminated Glass",
+      description: "Safety and sound-control glass for stronger protection and comfort.",
     },
   ];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero */}
       <section className="relative min-h-[700px] overflow-hidden">
         <img
           src="/custom-glass.png"
@@ -62,13 +67,12 @@ export default function GlassOptionsPage() {
           </h2>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-white/75">
-            Discover premium architectural glass solutions engineered for
-            energy efficiency, security, comfort, and timeless luxury.
+            Premium architectural glass solutions designed for clarity, privacy,
+            energy efficiency, safety, sound control, and luxury performance.
           </p>
         </div>
       </section>
 
-      {/* Glass Types */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-16 flex items-center gap-6">
           <div className="h-px flex-1 bg-yellow-400/40" />
@@ -96,7 +100,16 @@ export default function GlassOptionsPage() {
         </div>
       </section>
 
-      {/* Benefits */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="overflow-hidden border border-yellow-400/25 bg-white/[0.02]">
+          <img
+            src="/custom-glass.png"
+            alt="Luxora Glass Collection"
+            className="w-full object-cover"
+          />
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="border border-yellow-400/20 p-8">
@@ -104,33 +117,30 @@ export default function GlassOptionsPage() {
               Energy Efficiency
             </h3>
             <p className="mt-4 text-white/70">
-              Advanced glazing systems reduce heat transfer and improve indoor
-              comfort.
+              Low-E and insulated glass options help improve indoor comfort.
             </p>
           </div>
 
           <div className="border border-yellow-400/20 p-8">
             <h3 className="font-serif text-xl text-yellow-300">
-              Sound Control
+              Privacy & Design
             </h3>
             <p className="mt-4 text-white/70">
-              Laminated and insulated glass options help reduce outside noise.
+              Obscure, fluted, tinted, grey, and bronze glass provide privacy and style.
             </p>
           </div>
 
           <div className="border border-yellow-400/20 p-8">
             <h3 className="font-serif text-xl text-yellow-300">
-              Security & Safety
+              Safety & Sound
             </h3>
             <p className="mt-4 text-white/70">
-              Tempered and laminated glass provide enhanced protection and
-              durability.
+              Laminated glass supports safety, security, and sound-control performance.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 pb-28">
         <div className="border border-yellow-400/40 p-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -140,8 +150,7 @@ export default function GlassOptionsPage() {
               </h3>
 
               <p className="mt-4 text-white/70">
-                Our specialists can help you choose the perfect glass solution
-                for your project.
+                Glass availability may vary by product system, size, and project requirements.
               </p>
             </div>
 
