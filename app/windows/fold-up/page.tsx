@@ -25,6 +25,41 @@ export default function FoldUpWindowPage() {
     <main className="min-h-screen bg-[#050505] px-6 py-20 text-white">
       <section className="mx-auto max-w-7xl">
         <div className="mb-12">
+          <main className="min-h-screen bg-[#050505] text-white px-6 py-20">
+  <section className="max-w-7xl mx-auto">
+
+    {/* HERO IMAGE */}
+    <section className="relative mb-16 h-[650px] overflow-hidden rounded-[30px] border border-white/10">
+      <img
+        src="/foldup.png"
+        alt="Luxora Fold Up Window"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <div className="absolute inset-0 bg-black/55" />
+
+      <div className="relative z-10 flex h-full items-center px-10 md:px-16">
+        <div className="max-w-3xl">
+          <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+            LUXORA WINDOW SYSTEMS
+          </p>
+
+          <h1 className="text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
+            Fold Up Windows
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg text-white/75">
+            Premium top-hinged window systems engineered for ventilation,
+            performance, and modern architectural design.
+          </p>
+        </div>
+      </div>
+    </section>
+
+ 
+
+  </section>
+</main>
           <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-500/80">
             Luxora Fold-Up Window Systems
           </p>
