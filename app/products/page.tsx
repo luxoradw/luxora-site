@@ -342,8 +342,32 @@ export default function ProductsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black px-6 pb-24 pt-32 text-white">
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.18),transparent_55%)]" />
-      </div>
+  <motion.img
+    src="/gold.png"
+    alt=""
+    animate={{
+      x: [-80, 80, -80],
+      y: [-40, 40, -40],
+      rotate: [-2, 2, -2],
+    }}
+    transition={{
+      duration: 30,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+    className="
+      absolute
+      left-1/2
+      top-1/2
+      w-[900px]
+      -translate-x-1/2
+      -translate-y-1/2
+      opacity-30
+    "
+  />
+
+  <div className="absolute inset-0 bg-black/70" />
+</div>
 
       <section className="relative z-10 mx-auto max-w-7xl">
         <p className="mb-5 text-xs uppercase tracking-[0.45em] text-yellow-500/80">
