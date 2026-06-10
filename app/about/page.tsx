@@ -14,14 +14,14 @@ const cards = [
   {
     title: "Luxury Doors",
     label: "Door Systems",
-   href: "/products/doors",
+    href: "/products/doors",
     image: "/about-doors.png",
     text: "Pivot, sliding, folding, lift sliding, heavy duty, casement, barn, and custom luxury door systems.",
   },
   {
     title: "Premium Quality",
     label: "Quality",
-   href: "/about/quality",
+    href: "/about/quality",
     image: "/about-quality.png",
     text: "High-performance aluminum systems built for strength, insulation, durability, and timeless beauty.",
   },
@@ -51,48 +51,49 @@ const process = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
-      <section className="relative px-6 pt-32 pb-20">
+      {/* Hero */}
+      <section className="relative px-5 pb-16 pt-28 md:px-8 md:pb-24 md:pt-36">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.18),transparent_38%)]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="mb-6 text-xs uppercase tracking-[0.45em] text-yellow-400">
+            <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs md:tracking-[0.45em]">
               About Luxora
             </p>
 
-            <h1 className="font-serif text-5xl leading-tight md:text-7xl">
+            <h1 className="font-serif text-4xl leading-tight md:text-6xl lg:text-7xl">
               Luxury Openings <br />
               <span className="text-yellow-300">Engineered With Precision</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-neutral-300 md:text-lg">
+            <p className="mt-6 max-w-2xl text-sm leading-7 text-neutral-300 md:mt-8 md:text-lg md:leading-8">
               Luxora Doors & Windows provides premium aluminum door and window
               systems for modern homes, architectural projects, and custom
               luxury spaces.
             </p>
 
-            <p className="mt-5 max-w-2xl text-base leading-8 text-neutral-500">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-neutral-500 md:text-base md:leading-8">
               Our catalog includes thermal break systems, slim frame sliding
               doors, pivot doors, folding doors, casement windows, fixed windows,
               curtain wall, skylight systems, specialty glazing, hardware, and
               custom configurations.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-10 md:gap-4">
               <Link
                 href="/products"
-                className="border border-yellow-400/60 px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
+                className="text-center border border-yellow-400/60 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.22em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black md:px-8 md:text-xs md:tracking-[0.28em]"
               >
                 Our Products →
               </Link>
 
               <Link
                 href="/quote"
-                className="bg-yellow-400 px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-black transition hover:bg-yellow-300"
+                className="text-center bg-yellow-400 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.22em] text-black transition hover:bg-yellow-300 md:px-8 md:text-xs md:tracking-[0.28em]"
               >
                 Request Quote
               </Link>
@@ -103,52 +104,53 @@ export default function AboutPage() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative min-h-[480px] overflow-hidden border border-yellow-400/30"
+            className="relative min-h-[300px] overflow-hidden border border-yellow-400/30 md:min-h-[480px]"
           >
             <img
               src="/about-hero.png"
               alt="Luxora luxury doors and windows"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-            <div className="absolute inset-6 border border-yellow-400/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+            <div className="absolute inset-4 border border-yellow-400/30 md:inset-6" />
           </motion.div>
         </div>
       </section>
 
-      <section className="relative px-6 py-16">
+      {/* Cards */}
+      <section className="relative px-5 py-12 md:px-8 md:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
             {cards.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
-                className="group relative min-h-[360px] overflow-hidden border border-yellow-400/25 bg-black transition duration-500 hover:-translate-y-2 hover:border-yellow-400/70"
+                className="group relative min-h-[300px] overflow-hidden border border-yellow-400/25 bg-black transition duration-500 hover:-translate-y-2 hover:border-yellow-400/70 md:min-h-[360px]"
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 h-full w-full object-cover opacity95 transition duration-700 group-hover:scale-110 group-hover:opacity-70"
+                  className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-110 group-hover:opacity-70"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/65 to-transparent" />
 
-                <div className="relative z-10 flex h-full flex-col justify-between p-8 md:p-10">
+                <div className="relative z-10 flex h-full flex-col justify-between p-6 md:p-10">
                   <div>
-                    <p className="mb-5 text-xs uppercase tracking-[0.35em] text-yellow-400">
+                    <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-yellow-400 md:text-xs">
                       {item.label}
                     </p>
 
-                    <h2 className="font-serif text-4xl text-white transition group-hover:text-yellow-300 md:text-5xl">
+                    <h2 className="font-serif text-3xl text-white transition group-hover:text-yellow-300 md:text-5xl">
                       {item.title}
                     </h2>
 
-                    <p className="mt-6 max-w-md leading-8 text-neutral-300">
+                    <p className="mt-5 max-w-md text-sm leading-7 text-neutral-300 md:text-base md:leading-8">
                       {item.text}
                     </p>
                   </div>
 
-                  <p className="mt-10 text-xs uppercase tracking-[0.32em] text-yellow-400">
+                  <p className="mt-8 text-[10px] uppercase tracking-[0.28em] text-yellow-400 md:text-xs">
                     Learn More →
                   </p>
                 </div>
@@ -158,199 +160,210 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-yellow-400/10 px-6 py-24">
+      {/* Why Choose */}
+      <section className="border-t border-yellow-400/10 px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl text-center">
-          <p className="mb-5 text-xs uppercase tracking-[0.4em] text-yellow-400">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs">
             Why Choose Luxora
           </p>
 
-          <h2 className="mb-16 font-serif text-4xl md:text-6xl">
+          <h2 className="mb-12 font-serif text-4xl md:mb-16 md:text-6xl">
             Performance. Design. Luxury.
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {strengths.map(([title, text]) => (
-              <div key={title} className="border-r border-yellow-400/20 px-6 last:border-r-0">
+              <div
+                key={title}
+                className="border border-yellow-400/10 p-6 md:border-0 md:border-r md:border-yellow-400/20 md:last:border-r-0"
+              >
                 <div className="mx-auto mb-6 h-10 w-10 border border-yellow-400/70" />
                 <h3 className="font-serif text-2xl text-white">{title}</h3>
-                <p className="mt-4 leading-7 text-neutral-400">{text}</p>
+                <p className="mt-4 text-sm leading-7 text-neutral-400 md:text-base">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-<section className="px-6 py-24 bg-gradient-to-b from-[#050505] to-[#0b0b0b]">
-  <div className="mx-auto max-w-7xl">
-
-    <div className="mb-16 text-center">
-      <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
-        Customization
-      </p>
-
-      <h2 className="font-serif text-5xl md:text-7xl">
-        Crafted Around
-        <span className="block text-yellow-300">
-          Your Vision
-        </span>
-      </h2>
-
-      <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-neutral-400">
-        Every Luxora system can be personalized with premium finishes,
-        architectural glass solutions, and luxury hardware selections.
-      </p>
-    </div>
-
-    <Link
-      href="/customization"
-      className="group relative block overflow-hidden border border-yellow-400/20"
-    >
-      <img
-        src="/about-customization-hero.png"
-        alt="Luxora Customization"
-        className="h-[600px] w-full object-cover transition duration-700 group-hover:scale-105"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-      <div className="absolute bottom-0 left-0 p-12 md:p-16">
-        <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-400">
-          Colors • Glass • Hardware
-        </p>
-
-        <h3 className="font-serif text-5xl md:text-7xl">
-          Customization
-        </h3>
-
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
-          Explore premium finishes, advanced glazing options,
-          and refined hardware selections designed for modern luxury homes.
-        </p>
-
-        <div className="mt-8 inline-flex items-center border border-yellow-400 px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-yellow-300">
-          Explore Customization →
-        </div>
-      </div>
-    </Link>
-
-  </div>
-</section>
-
-      <section className="border-t border-yellow-400/10 px-6 py-24">
+      {/* Customization */}
+      <section className="bg-gradient-to-b from-[#050505] to-[#0b0b0b] px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="mb-5 text-center text-xs uppercase tracking-[0.4em] text-yellow-400">
-<section className="border-t border-yellow-400/10 px-6 py-24">
-  <div className="mx-auto max-w-6xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
+          <div className="mb-12 text-center md:mb-16">
+            <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs">
+              Customization
+            </p>
 
-    <div className="grid items-center gap-12 p-10 lg:grid-cols-2">
+            <h2 className="font-serif text-4xl md:text-7xl">
+              Crafted Around
+              <span className="block text-yellow-300">Your Vision</span>
+            </h2>
 
-      <div className="flex justify-center">
-        <img
-          src="/catalog-cover.png"
-          alt="Luxora Catalog"
-          className="w-full max-w-[420px] rotate-[-3deg] rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.15)] transition duration-500 hover:scale-105"
-        />
-      </div>
-
-      <div>
-        <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
-          Product Catalog
-        </p>
-
-        <h2 className="font-serif text-5xl leading-tight">
-          Explore The
-          <span className="block text-yellow-300">
-            Luxora Collection
-          </span>
-        </h2>
-
-        <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-400">
-          Browse our complete collection of luxury aluminum doors,
-          windows, premium hardware, finishes, and architectural systems.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="/luxora-catalog.pdf"
-            download
-            className="bg-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-black transition hover:bg-yellow-300"
-          >
-            Download Catalog
-          </a>
+            <p className="mx-auto mt-6 max-w-3xl text-sm leading-7 text-neutral-400 md:mt-8 md:text-lg md:leading-8">
+              Every Luxora system can be personalized with premium finishes,
+              architectural glass solutions, and luxury hardware selections.
+            </p>
+          </div>
 
           <Link
-            href="/quote"
-            className="border border-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
+            href="/customization"
+            className="group relative block overflow-hidden border border-yellow-400/20"
           >
-            Request Quote
+            <img
+              src="/about-customization-hero.png"
+              alt="Luxora Customization"
+              className="h-[420px] w-full object-cover transition duration-700 group-hover:scale-105 md:h-[600px]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+            <div className="absolute bottom-0 left-0 p-6 md:p-16">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-yellow-400 md:text-xs">
+                Colors • Glass • Hardware
+              </p>
+
+              <h3 className="font-serif text-4xl md:text-7xl">
+                Customization
+              </h3>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-neutral-300 md:text-lg md:leading-8">
+                Explore premium finishes, advanced glazing options, and refined
+                hardware selections designed for modern luxury homes.
+              </p>
+
+              <div className="mt-6 inline-flex items-center border border-yellow-400 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.22em] text-yellow-300 md:mt-8 md:px-8 md:text-xs">
+                Explore Customization →
+              </div>
+            </div>
           </Link>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
+      {/* Catalog */}
+      <section className="border-t border-yellow-400/10 px-5 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-6xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
+          <div className="grid items-center gap-10 p-6 md:p-10 lg:grid-cols-2 lg:gap-12">
+            <div className="flex justify-center">
+              <img
+                src="/catalog-cover.png"
+                alt="Luxora Catalog"
+                className="w-full max-w-[300px] rotate-[-2deg] rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.15)] transition duration-500 hover:scale-105 md:max-w-[420px]"
+              />
+            </div>
+
+            <div className="text-center lg:text-left">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs">
+                Product Catalog
+              </p>
+
+              <h2 className="font-serif text-4xl leading-tight md:text-5xl">
+                Explore The
+                <span className="block text-yellow-300">
+                  Luxora Collection
+                </span>
+              </h2>
+
+              <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-neutral-400 md:text-lg md:leading-8 lg:mx-0">
+                Browse our complete collection of luxury aluminum doors,
+                windows, premium hardware, finishes, and architectural systems.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                <a
+                  href="/luxora-catalog.pdf"
+                  download
+                  className="bg-yellow-400 px-8 py-4 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-black transition hover:bg-yellow-300 md:px-10 md:text-xs"
+                >
+                  Download Catalog
+                </a>
+
+                <Link
+                  href="/quote"
+                  className="border border-yellow-400 px-8 py-4 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black md:px-10 md:text-xs"
+                >
+                  Request Quote
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="border-t border-yellow-400/10 px-5 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-4 text-center text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs">
             Our Process
           </p>
 
-          <h2 className="mb-16 text-center font-serif text-4xl md:text-6xl">
+          <h2 className="mb-12 text-center font-serif text-4xl md:mb-16 md:text-6xl">
             Simple Steps. Perfect Results.
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {process.map(([number, title, text]) => (
-              <div key={number}>
-                <p className="font-serif text-5xl text-yellow-400/80">{number}</p>
-                <h3 className="mt-5 font-serif text-2xl text-white">{title}</h3>
-                <p className="mt-4 leading-7 text-neutral-400">{text}</p>
+              <div
+                key={number}
+                className="border border-yellow-400/10 p-6 md:border-0 md:p-0"
+              >
+                <p className="font-serif text-5xl text-yellow-400/80">
+                  {number}
+                </p>
+                <h3 className="mt-5 font-serif text-2xl text-white">
+                  {title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-neutral-400 md:text-base">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-<section className="px-6 pb-32">
-  <div className="mx-auto max-w-7xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
-    <div className="grid lg:grid-cols-2">
+      {/* CTA */}
+      <section className="px-5 pb-24 md:px-8 md:pb-32">
+        <div className="mx-auto max-w-7xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
+          <div className="grid lg:grid-cols-2">
+            <div className="p-8 md:p-20">
+              <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-yellow-400 md:text-xs">
+                Start Your Project
+              </p>
 
-      <div className="p-12 md:p-20">
-        <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
-          Start Your Project
-        </p>
+              <h2 className="font-serif text-4xl leading-tight md:text-7xl">
+                Luxury Begins
+                <br />
+                <span className="text-yellow-300">
+                  With The Right Opening
+                </span>
+              </h2>
 
-        <h2 className="font-serif text-5xl leading-tight md:text-7xl">
-          Luxury Begins
-          <br />
-          <span className="text-yellow-300">
-            With The Right Opening
-          </span>
-        </h2>
+              <p className="mt-6 max-w-xl text-sm leading-7 text-neutral-400 md:mt-8 md:text-lg md:leading-8">
+                Discover premium aluminum doors and windows designed to transform
+                modern architecture with performance, elegance, and timeless
+                beauty.
+              </p>
 
-        <p className="mt-8 max-w-xl text-lg leading-8 text-neutral-400">
-          Discover premium aluminum doors and windows designed
-          to transform modern architecture with performance,
-          elegance, and timeless beauty.
-        </p>
+              <Link
+                href="/quote"
+                className="mt-8 inline-block w-full border border-yellow-400 px-8 py-4 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black sm:w-auto md:mt-10 md:px-10 md:text-xs"
+              >
+                Request Quote →
+              </Link>
+            </div>
 
-        <Link
-          href="/quote"
-          className="mt-10 inline-block border border-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
-        >
-          Request Quote →
-        </Link>
-      </div>
-
-      <div className="relative min-h-[500px]">
-        <img
-          src="/about-cta.png"
-          alt="Luxury House"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-    </div>
-  </div>
-</section>
+            <div className="relative min-h-[320px] md:min-h-[500px]">
+              <img
+                src="/about-cta.png"
+                alt="Luxury House"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
