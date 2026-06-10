@@ -49,21 +49,33 @@ export default function SlidingDoorPage() {
   return (
     <main className="min-h-screen bg-[#050505] px-6 py-20 text-white">
       <section className="mx-auto max-w-7xl">
-        {/* HEADER */}
-        <div className="mb-12">
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-500/80">
-            Luxora Sliding Door Systems
-          </p>
+        {/* Hero Image */}
+<section className="relative mb-16 h-[650px] overflow-hidden rounded-[30px] border border-white/10">
+  <img
+    src="/slidingdoor.png"
+    alt="Luxora Sliding Door"
+    className="absolute inset-0 h-full w-full object-cover"
+  />
 
-          <h1 className="text-3xl font-light uppercase tracking-[0.14em] md:text-5xl">
-            Sliding Doors
-          </h1>
+  <div className="absolute inset-0 bg-black/55" />
 
-          <p className="mt-5 max-w-3xl text-sm leading-7 text-white/55">
-            Slim frame sliding doors with expansive glass, smooth luxury motion,
-            thermal performance, and refined architectural detailing.
-          </p>
-        </div>
+  <div className="relative z-10 flex h-full items-center px-10 md:px-16">
+    <div className="max-w-3xl">
+      <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+        LUXORA DOOR SYSTEMS
+      </p>
+
+      <h1 className="text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
+        Sliding Doors
+      </h1>
+
+      <p className="mt-6 max-w-xl text-lg text-white/75">
+        Expansive glass, ultra-slim frames, and effortless sliding performance
+        designed for luxury indoor-outdoor living.
+      </p>
+    </div>
+  </div>
+</section>
 
         {/* MAIN BUTTONS */}
         <div className="mb-12 flex flex-wrap gap-3">

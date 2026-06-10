@@ -239,6 +239,57 @@ export default function AboutPage() {
       <section className="border-t border-yellow-400/10 px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <p className="mb-5 text-center text-xs uppercase tracking-[0.4em] text-yellow-400">
+<section className="border-t border-yellow-400/10 px-6 py-24">
+  <div className="mx-auto max-w-6xl overflow-hidden border border-yellow-400/20 bg-gradient-to-r from-[#080808] to-[#111111]">
+
+    <div className="grid items-center gap-12 p-10 lg:grid-cols-2">
+
+      <div className="flex justify-center">
+        <img
+          src="/catalog-cover.png"
+          alt="Luxora Catalog"
+          className="w-full max-w-[420px] rotate-[-3deg] rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.15)] transition duration-500 hover:scale-105"
+        />
+      </div>
+
+      <div>
+        <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+          Product Catalog
+        </p>
+
+        <h2 className="font-serif text-5xl leading-tight">
+          Explore The
+          <span className="block text-yellow-300">
+            Luxora Collection
+          </span>
+        </h2>
+
+        <p className="mt-6 max-w-xl text-lg leading-8 text-neutral-400">
+          Browse our complete collection of luxury aluminum doors,
+          windows, premium hardware, finishes, and architectural systems.
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/luxora-catalog.pdf"
+            download
+            className="bg-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-black transition hover:bg-yellow-300"
+          >
+            Download Catalog
+          </a>
+
+          <Link
+            href="/quote"
+            className="border border-yellow-400 px-10 py-5 text-xs font-bold uppercase tracking-[0.3em] text-yellow-300 transition hover:bg-yellow-400 hover:text-black"
+          >
+            Request Quote
+          </Link>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
             Our Process
           </p>
 

@@ -24,6 +24,33 @@ export default function FoldingDoorPage() {
   return (
     <main className="min-h-screen bg-[#050505] px-6 py-20 text-white">
       <section className="mx-auto max-w-7xl">
+        {/* Hero Image */}
+<section className="relative mb-16 h-[650px] overflow-hidden rounded-[30px] border border-white/10">
+  <img
+    src="/foldingdoor.png"
+    alt="Luxora Folding Door"
+    className="absolute inset-0 h-full w-full object-cover"
+  />
+
+  <div className="absolute inset-0 bg-black/50" />
+
+  <div className="relative z-10 flex h-full items-center px-10 md:px-16">
+    <div className="max-w-3xl">
+      <p className="mb-4 text-xs uppercase tracking-[0.4em] text-yellow-400">
+        LUXORA DOOR SYSTEMS
+      </p>
+
+      <h1 className="text-5xl font-light uppercase tracking-[0.15em] md:text-7xl">
+        Folding Doors
+      </h1>
+
+      <p className="mt-6 max-w-xl text-lg text-white/75">
+        Transform entire walls into open living spaces with premium folding
+        door systems, panoramic views, and seamless indoor-outdoor living.
+      </p>
+    </div>
+  </div>
+</section>
         {/* HEADER */}
         <div className="mb-12">
           <p className="mb-4 text-xs uppercase tracking-[0.35em] text-yellow-500/80">
